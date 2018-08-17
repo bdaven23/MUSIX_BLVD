@@ -1,30 +1,44 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, StatusBar} from 'react-native';
+import { StackNavigator,} from 'react-navigation';
+import Login from './src/screens/Login';
+import SignUp from './src/screens/SignUp';
+import DrawerNavigator from './src/screens/DrawerNavigator';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
+
+const Application = StackNavigator({
+  Home: {
+    screen: Login,
+    navigationOptions: { header: null }
+  },
+  SignUp:{
+    screen: SignUp,
+    navigationOptions: () => ({
+      title: 'Sign Up',
+      headerTintColor: 'white',
+      headerStyle:{
+        backgroundColor: 'blue',
+        elevation: 0,
+        showdowOpacity: 0
+      },
+  }),
+},
+  DrawerNavigator:{
+    screen : DrawerNavigator,
+    navigationOptions: { header: null }
+  },
+
+},{
+  navigationOptions: { gesturesEnabled:false }
+
 });
 
-type Props = {};
-export default class App extends Component<Props> {
+
+
+export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <Application />
     );
   }
 }
