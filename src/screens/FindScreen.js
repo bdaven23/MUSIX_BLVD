@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import {Image, View, Text, StyleSheet,  Dimensions, TouchableOpacity,ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  Image,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label, Segment} from 'native-base'
 import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
 import Grid from 'react-native-grid-component';
@@ -37,6 +48,7 @@ export default class FindScreen extends Component {
           <IconFeather name='search' size={26} color={'white'} />
         </Button>
         </Right>
+        <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
       </Header>
 
           <ScrollView>

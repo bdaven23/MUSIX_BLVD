@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import {Image, View, Text, StyleSheet,  Dimensions, TouchableOpacity,ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  Image,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label} from 'native-base'
 import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
 import Grid from 'react-native-grid-component';
@@ -11,6 +22,12 @@ import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 
 const screen = Dimensions.get('window');
+
+const MyStatusBar = ({backgroundColor, ...props}) => (
+  <View style={[styles.statusBar, { backgroundColor }]}>
+    <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+  </View>
+);
 
 export default class ProfileScreen extends Component {
   _renderItem = (data, i) => (
@@ -32,6 +49,7 @@ export default class ProfileScreen extends Component {
             </Body>
             <Right>
             </Right>
+            <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
           </Header>
 
           <ScrollView>
@@ -59,24 +77,24 @@ export default class ProfileScreen extends Component {
 
               <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white',  }}></View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'green', }}>
-              <Text>Spotify</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', }}>
+              <Image source={require('./images/Spotify-Logo.png')}/>
               </View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'yellow', }}>
-              <Text>Apple</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', }}>
+              <Image source={require('./images/apple-music-logo.png')}/>
               </View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'orange', }}>
-              <Text>Pandora</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', }}>
+              <Image source={require('./images/Pandora-logo.png')}/>
               </View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'green', }}>
-              <Text>Amazon</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', }}>
+              <Image source={require('./images/amazon-transparent-logo-a.png')}/>
               </View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'yellow',  }}>
-              <Text>Google</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white',  }}>
+              <Image source={require('./images/google-play-logo.png')}/>
               </View>
 
               <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white',  }}></View>
@@ -86,25 +104,25 @@ export default class ProfileScreen extends Component {
 
             <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', top:0, left:0}}></View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'blue', top:0,}}>
-                <Text>Rhapsody</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', top:0,}}>
+                <Image source={require('./images/rhapsody_logo.png')}/>
               </View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'grey', top:0,}}>
-                <Text>Tidal</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', top:0,}}>
+                <Image source={require('./images/Tidal_logo.png')}/>
               </View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'orange', top:0, }}>
-                <Text>Deezer</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', top:0, }}>
+                <Image source={require('./images/Deezer-Logo.png')}/>
               </View>
 
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'blue', top:0, }}>
-                <Text>Youtube</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', top:0, }}>
+                <Image source={require('./images/youtube.png')}/>
               </View>
 
-              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'grey', top:0, }}>
-                <Text>Xbox</Text>
+              <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', top:0, }}>
+                <Image source={require('./images/xbox_logo.png')}/>
               </View>
 
               <View style={{position:'relative', height:50, width:screen.width/7, backgroundColor:'white', top:0, }}></View>

@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import {Image, View, Text, StyleSheet,  Dimensions, TouchableOpacity,ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  Image,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label} from 'native-base'
 import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
 import Grid from 'react-native-grid-component';
@@ -11,9 +22,6 @@ import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 
 const screen = Dimensions.get('window');
-
-
-
 
 const MyStatusBar = ({backgroundColor, ...props}) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
@@ -37,7 +45,7 @@ export default class SettingsScreen extends Component {
           <Right>
           </Right>
         </Header>
-
+        <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
         <ScrollView>
 
 

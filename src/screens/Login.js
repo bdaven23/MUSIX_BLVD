@@ -8,6 +8,8 @@ import {
   TouchableOpacity,
   StatusBar,
   Image,
+  Dimensions,
+  ScrollView,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -65,11 +67,16 @@ export default class Login extends Component {
               <Image source={require('./images/Twitter-Logo.png')}/>
             </View>
 
-            <View style={{position:'absolute', backgroundColor:'orange', right:75, bottom:130, width:50, height:50, borderRadius:25, }}>
-            <Image source={require('./images/facebook-logo.png')}/></View>
+            <View style={{position:'absolute', backgroundColor:'black', right:75, bottom:130, width:50, height:50, borderRadius:25, }}>
+              <Image source={require('./images/Google-logo-2015-G-icon.png')}/>
+            </View>
 
-            <View style={{position:'absolute', backgroundColor:'purple', bottom:130, width:50, height:50, borderRadius:25,}}></View>
-            <View style={{}}></View>
+            <View style={{position:'absolute', backgroundColor:'purple', bottom:130, width:50, height:50, borderRadius:25,}}>
+              <Image style={{borderRadius:25}}    source={require('./images/facebook_logo.png')}/>
+
+            </View>
+
+
 
 
             <Text style={styles.noAcctLabel}>Dont have an Account?</Text>

@@ -1,5 +1,16 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet,  Dimensions,} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  TextInput,
+  TouchableOpacity,
+  StatusBar,
+  Image,
+  Dimensions,
+  ScrollView,
+} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion} from 'native-base'
 import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
 
@@ -10,10 +21,17 @@ import IconFeather from 'react-native-vector-icons/Feather';
 
 const screen = Dimensions.get('window');
 
+const MyStatusBar = ({backgroundColor, ...props}) => (
+  <View style={[styles.statusBar, { backgroundColor }]}>
+    <StatusBar translucent backgroundColor={backgroundColor} {...props} />
+  </View>
+);
+
 export default class DashboardScreen extends Component {
     render() {
       return (
         <Container>
+
           <Header style={{backgroundColor:'#000000'}}>
             <Left>
             <Button onPress={this.openDrawer} transparent>
@@ -25,6 +43,7 @@ export default class DashboardScreen extends Component {
             </Body>
             <Right>
             </Right>
+            <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
           </Header>
 
         <Content style={styles.wrapper}>
