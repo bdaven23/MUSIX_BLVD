@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import {Image, View, Text, StyleSheet,  Dimensions, TouchableOpacity,ScrollView} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label} from 'native-base'
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
 import Grid from 'react-native-grid-component';
+
+
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconFeather from 'react-native-vector-icons/Feather';
+
 const screen = Dimensions.get('window');
+
+
+
 
 const MyStatusBar = ({backgroundColor, ...props}) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
@@ -87,14 +97,14 @@ export default class SettingsScreen extends Component {
               <Text>Switch User</Text>
             </Left>
           </ListItem>
-          <ListItem>
+          <ListItem onPress={this.logout} >
             <Left>
-              <Text>LOG OUT</Text>
+              <Text style={{ color:'red', fontWeight:'bold',}} >SIGN OFF</Text>
             </Left>
           </ListItem>
-          <ListItem>
+          <ListItem style={{ backgroundColor:'red'}}>
             <Left>
-              <Text>DELETE ACCOUNT</Text>
+              <Text style={{ color:'white', fontWeight:'bold',}} >DELETE ACCOUNT</Text>
             </Left>
           </ListItem>
         </List>
@@ -106,6 +116,11 @@ export default class SettingsScreen extends Component {
   openDrawer =() => {
     this.props.navigation.openDrawer();
   }
+  logout =() => {
+    this.props.navigation.navigate('Login');
+
+  }
+
 }
 
 const styles = StyleSheet.create({

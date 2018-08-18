@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator, createStackNavigator } from 'react-navigation';
 
 import DashboardScreen from './DashboardScreen';
 import ProfileScreen from './ProfileScreen';
@@ -12,19 +12,53 @@ import ProjectsScreen from './ProjectsScreen';
 import FindScreen from './FindScreen';
 import ConnectionsScreen from './ConnectionsScreen';
 import SettingsScreen from './SettingsScreen';
+import EditDashScreen from './EditDashScreen';
+import InteractionModalScreen from './InteractionModalScreen';
+import ProjectScreen from './ProjectScreen';
+import Login from './Login';
+import SignUp from './SignUp';
 
 
-const AppDrawerNavigator = new DrawerNavigator({
-    Dashboard:{ screen: DashboardScreen  },
-    Profile: { screen: ProfileScreen },
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconFeather from 'react-native-vector-icons/Feather';
+
+
+const ProfileStackNavigator = StackNavigator({
+  Profile:{ screen: ProfileScreen},
+  ProjectScreen:{ screen: ProjectScreen}
+},{
+  headerMode: 'none',
+
+});
+
+const DashboardStackNavigator = StackNavigator({
+  Dashboard:{ screen: DashboardScreen},
+  EditDashScreen:{screen: EditDashScreen}
+},{
+  headerMode: 'none',
+
+});
+
+const SettingsStackNavigator = StackNavigator({
+  Settings:{ screen: SettingsScreen},
+  Login:{screen: Login},
+},{
+  headerMode: 'none',
+
+});
+
+
+
+const AppDrawerNavigator = DrawerNavigator ({
+    Dashboard : {screen:DashboardStackNavigator },
+    Profile: { screen: ProfileStackNavigator },
     Projects: { screen: ProjectsScreen },
     Explore: { screen: FindScreen },
     Connections: { screen: ConnectionsScreen },
-    Settings: { screen: SettingsScreen },
+    Settings: { screen: SettingsStackNavigator },
 })
-
-
-
 
 export default AppDrawerNavigator;
 

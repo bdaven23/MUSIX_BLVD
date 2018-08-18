@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import {View, Text, StyleSheet,  Dimensions,} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion} from 'native-base'
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
+
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconFeather from 'react-native-vector-icons/Feather';
 
 const screen = Dimensions.get('window');
 
@@ -61,7 +66,7 @@ export default class DashboardScreen extends Component {
               <View style={styles.line2}></View>
 
               <Text style={styles.InteractionLabel}>INTERACTION</Text>
-              <Text style={styles.EditLabel}>EDIT</Text>
+              <Text onPress={this.edit} style={styles.EditLabel}>EDIT</Text>
               <View style={styles.line3}></View>
 
           </View>
@@ -104,6 +109,9 @@ export default class DashboardScreen extends Component {
     }
     openDrawer =() => {
       this.props.navigation.openDrawer();
+    }
+    edit =() => {
+      this.props.navigation.navigate('EditDashScreen');
     }
 
   }

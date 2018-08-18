@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import {Image, View, Text, StyleSheet,  Dimensions, TouchableOpacity,ScrollView} from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label} from 'native-base'
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
+import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
 import Grid from 'react-native-grid-component';
+
+
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconFeather from 'react-native-vector-icons/Feather';
+
 const screen = Dimensions.get('window');
 
 export default class ProfileScreen extends Component {
@@ -10,7 +17,7 @@ export default class ProfileScreen extends Component {
     <View style={[{ backgroundColor: data }, styles.item]} key={i} />
   );
 
-  _renderPlaceholder = i => <View style={styles.item} key={i} />;
+  _renderPlaceholder = i => <View onPress={this.openProject} style={styles.item} key={i} />;
     render() {
       return (
         <Container>
@@ -37,7 +44,7 @@ export default class ProfileScreen extends Component {
               <Text style={{color:'white'}}>BANNER IMAGE</Text>
             </View>
 
-            <View style={{position:'relative', height:100, width:100, backgroundColor:'red', top :-50, justifyContent: 'center',
+            <View onPress={this.openProject} style={{position:'relative', height:100, width:100, backgroundColor:'red', top :-50, justifyContent: 'center',
             alignItems: 'center', borderRadius:50,}}>
               <Text style={{color:'white'}}>Profile IMAGE</Text>
             </View>
@@ -104,10 +111,11 @@ export default class ProfileScreen extends Component {
 
             </View>
 
-            <Text style={{top:0, fontSize: 26, fontWeight:'bold', color:'black',}}>PROJECTS</Text>
+            <Text onPress={this.openProject} style={{top:0, fontSize: 26, fontWeight:'bold', color:'black',}}>PROJECTS</Text>
 
             <View style={{position:'relative', width:screen.width, backgroundColor:'grey', top: 0,}}>
             <Grid
+                onPress={this.openProject}
                 style={styles.list}
                 renderItem={this._renderItem}
                 renderPlaceholder={this._renderPlaceholder}
@@ -128,6 +136,9 @@ export default class ProfileScreen extends Component {
     }
     openDrawer =() => {
       this.props.navigation.openDrawer();
+    }
+    openProject =() => {
+      this.props.navigation.navigate('ProjectScreen');
     }
 
   }
