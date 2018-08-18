@@ -32,7 +32,8 @@ export default class Login extends Component {
 
           <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
 
-          <View style={styles.image}></View>
+          <View style={styles.image}>
+          </View>
 
 
           <Text style={styles.header}>Welcome</Text>
@@ -134,7 +135,7 @@ const styles = StyleSheet.create({
     width:150,
     height:150,
     position:'absolute',
-    backgroundColor:'black',
+    backgroundColor:'white',
     top:50,
   },
 });

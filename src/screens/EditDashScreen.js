@@ -66,9 +66,9 @@ export default class EditDashScreen extends Component {
             <Text style={{color:'red', fontWeight:'bold', }}>Delete Banner Image</Text>
           </TouchableOpacity>
 
-            <View style={{postition:'absolute', left:20, top:-50, width:70, height:70, backgroundColor:'red', borderRadius:35, }}></View>
+            <View style={{postition:'absolute', left:20, top:-50, width:70, height:70, backgroundColor:'#5AC6CC', borderRadius:35, }}></View>
 
-            <View style={{postition:'absolute', left:20, bottom:30, width:70, height:70, backgroundColor:'red', borderRadius:15,}}></View>
+            <View style={{postition:'absolute', left:20, bottom:30, width:70, height:70, backgroundColor:'#00A79D', borderRadius:15,}}></View>
 
 
           </View>
