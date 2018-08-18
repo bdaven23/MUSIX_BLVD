@@ -61,8 +61,13 @@ export default class Login extends Component {
           </TouchableOpacity>
             <Text style={{bottom:190, position:'absolute', color:'white', }}>OR CONTINUE WITH</Text>
 
-            <View style={{position:'absolute', backgroundColor:'red', left:75, bottom:130, width:50, height:50, borderRadius:25, }}></View>
-            <View style={{position:'absolute', backgroundColor:'orange', right:75, bottom:130, width:50, height:50, borderRadius:25, }}></View>
+            <View style={{position:'absolute', backgroundColor:'black', left:75, bottom:130, width:50, height:50, borderRadius:25, }}>
+              <Image source={require('./images/Twitter-Logo.png')}/>
+            </View>
+
+            <View style={{position:'absolute', backgroundColor:'orange', right:75, bottom:130, width:50, height:50, borderRadius:25, }}>
+            <Image source={require('./images/facebook-logo.png')}/></View>
+
             <View style={{position:'absolute', backgroundColor:'purple', bottom:130, width:50, height:50, borderRadius:25,}}></View>
             <View style={{}}></View>
 
@@ -113,7 +118,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     padding:16,
     marginBottom:20,
-    backgroundColor:'#000000',
+    backgroundColor:'#5AC6CC',
     alignItems: 'center',
   },
   btnText:{
@@ -136,7 +141,7 @@ const styles = StyleSheet.create({
     width:150,
     height:150,
     position:'absolute',
-    backgroundColor:'white',
+    backgroundColor:'black',
     top:50,
   },
 });
