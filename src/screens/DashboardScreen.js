@@ -14,14 +14,14 @@ export default class DashboardScreen extends Component {
     render() {
       return (
         <Container>
-          <Header>
+          <Header style={{backgroundColor:'#000000'}}>
             <Left>
             <Button onPress={this.openDrawer} transparent>
-              <Icon name='menu' />
+              <IconFeather name='menu' size={26} color={'white'} />
             </Button>
             </Left>
             <Body>
-              <Title>Dashboard</Title>
+              <Title style={{color:'white'}}>Dashboard</Title>
             </Body>
             <Right>
             </Right>
@@ -33,11 +33,11 @@ export default class DashboardScreen extends Component {
             <Text style={styles.helloLabel}>Hello USERNAME,</Text>
 
             <View style={styles.callingCard}>
-            <View style={{position:'absolute', width:screen.width, height:120,  backgroundColor:'grey', borderTopLeftRadius:20, top:0, borderTopRightRadius:20, justifyContent: 'center',
+            <View style={{position:'absolute', width:screen.width, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, top:0, borderTopRightRadius:20, justifyContent: 'center',
             alignItems: 'center',}}>
               <Text>Background Image</Text>
             </View>
-              <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'blue', left:10, bottom:10,}}>
+              <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
               </View>
               <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>USERNAME</Text>
               <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Title</Text>
@@ -73,7 +73,7 @@ export default class DashboardScreen extends Component {
           <List style={styles.list}>
             <ListItem>
               <Left>
-                <Text style={{fontSize: 16, fontWeight:'bold', color:'red',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'red',}}>PRODUCER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
+                <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>PRODUCER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
               </Left>
               <Right>
                 <Button transparent>
@@ -83,7 +83,7 @@ export default class DashboardScreen extends Component {
             </ListItem>
             <ListItem>
               <Left>
-                <Text style={{fontSize: 16, fontWeight:'bold', color:'red',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'red',}}>WRITER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
+                <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>WRITER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
               </Left>
               <Right>
                 <Button transparent>
@@ -93,7 +93,7 @@ export default class DashboardScreen extends Component {
             </ListItem>
             <ListItem>
               <Left>
-                <Text style={{fontSize: 16, fontWeight:'bold', color:'red',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'red',}}>ENGINEER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
+                <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ENGINEER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
               </Left>
               <Right>
                 <Button transparent>
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     top:375,
     fontSize: 16,
     fontWeight:'bold',
-    color:'black',
+    color:'#5AC6CC',
     right:20
   },
   list:{

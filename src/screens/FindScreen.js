@@ -23,18 +23,18 @@ export default class FindScreen extends Component {
     return (
       <Container>
 
-      <Header>
+      <Header style={{backgroundColor:'#000000'}}>
         <Left>
         <Button onPress={this.openDrawer} transparent>
-          <Icon name='menu' />
+          <IconFeather name='menu' size={26} color={'white'} />
         </Button>
         </Left>
         <Body>
-          <Title>Explore</Title>
+          <Title style={{color:'white'}}>Explore</Title>
         </Body>
         <Right>
         <Button onPress={this.openDrawer} transparent>
-          <Icon name='search' />
+          <IconFeather name='search' size={26} color={'white'} />
         </Button>
         </Right>
       </Header>
@@ -48,11 +48,11 @@ export default class FindScreen extends Component {
             <ListItem>
             <Left>
               <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'grey', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
+              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
               alignItems: 'center',}}>
                 <Text>Background Image</Text>
               </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'blue', left:10, bottom:10,}}>
+                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
                 </View>
                 <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Ashley</Text>
                 <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Rapper</Text>
@@ -63,11 +63,11 @@ export default class FindScreen extends Component {
             <ListItem>
             <Left>
               <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'grey', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
+              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
               alignItems: 'center',}}>
                 <Text>Background Image</Text>
               </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'blue', left:10, bottom:10,}}>
+                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
                 </View>
                 <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Barry</Text>
                 <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Engineer</Text>
@@ -78,11 +78,11 @@ export default class FindScreen extends Component {
             <ListItem>
             <Left>
               <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'grey', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
+              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
               alignItems: 'center',}}>
                 <Text>Background Image</Text>
               </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'blue', left:10, bottom:10,}}>
+                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
                 </View>
                 <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Bob</Text>
                 <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Engineer</Text>

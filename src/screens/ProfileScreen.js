@@ -21,14 +21,14 @@ export default class ProfileScreen extends Component {
     render() {
       return (
         <Container>
-          <Header>
+          <Header style={{backgroundColor:'#000000'}}>
             <Left>
             <Button onPress={this.openDrawer} transparent>
-              <Icon name='menu' />
+              <IconFeather name='menu' size={26} color={'white'} />
             </Button>
             </Left>
             <Body>
-              <Title>Profile</Title>
+              <Title style={{color:'white'}}>Profile</Title>
             </Body>
             <Right>
             </Right>
@@ -39,12 +39,12 @@ export default class ProfileScreen extends Component {
           <View style={styles.container}>
 
 
-            <View style={{position:'relative', height:200, width:screen.width, backgroundColor:'blue', top :0, justifyContent: 'center',
+            <View style={{position:'relative', height:200, width:screen.width, backgroundColor:'#00A79D', top :0, justifyContent: 'center',
             alignItems: 'center',}}>
               <Text style={{color:'white'}}>BANNER IMAGE</Text>
             </View>
 
-            <View onPress={this.openProject} style={{position:'relative', height:100, width:100, backgroundColor:'red', top :-50, justifyContent: 'center',
+            <View onPress={this.openProject} style={{position:'relative', height:100, width:100, backgroundColor:'#5AC6CC', top :-50, justifyContent: 'center',
             alignItems: 'center', borderRadius:50,}}>
               <Text style={{color:'white'}}>Profile IMAGE</Text>
             </View>

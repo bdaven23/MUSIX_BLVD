@@ -25,17 +25,16 @@ export default class SettingsScreen extends Component {
   render() {
     return (
       <Container>
-        <Header>
+        <Header style={{backgroundColor:'#000000'}}>
           <Left>
           <Button onPress={this.openDrawer} transparent>
-            <Icon name='menu' />
+            <IconFeather name='menu' size={26} color={'white'} />
           </Button>
           </Left>
           <Body>
-            <Title>Settings</Title>
+            <Title style={{color:'white'}}>Settings</Title>
           </Body>
           <Right>
-
           </Right>
         </Header>
 

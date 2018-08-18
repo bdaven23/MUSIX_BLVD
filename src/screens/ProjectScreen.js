@@ -26,25 +26,28 @@ export default class ProjectScreen extends Component {
     render() {
       return (
         <Container>
-          <Header>
-            <Left>
-            <Button onPress={this.pop} transparent>
-              <IconFeather name='chevron-left' size={26} color={'white'} />
-            </Button>
-            </Left>
-            <Body>
-              <Title>Project</Title>
-            </Body>
-            <Right>
-            </Right>
-          </Header>
+        <Header style={{backgroundColor:'#000000'}}>
+          <Left>
+          <Button onPress={this.pop} transparent>
+            <IconFeather name='chevron-left' size={26} color={'white'} />
+          </Button>
+          </Left>
+          <Body>
+            <Title style={{color:'white'}}>Project</Title>
+          </Body>
+          <Right>
+          <Button onPress={this.openDrawer} transparent>
+            <IconFeather name='save' size={26} color={'white'} />
+          </Button>
+          </Right>
+        </Header>
 
           <ScrollView>
         <Content style={styles.wrapper}>
           <View style={styles.container}>
 
 
-          <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'blue', justifyContent: 'center',
+          <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'#00A79D', justifyContent: 'center',
           alignItems: 'center',}}>
           <Text style={{ color:'white'}}>Album Art</Text>
         </View>

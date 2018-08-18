@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   StatusBar,
+  Image,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
@@ -32,7 +33,9 @@ export default class Login extends Component {
           <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
 
           <View style={styles.image}></View>
-          <Text style={styles.header}>- LOGIN -</Text>
+
+
+          <Text style={styles.header}>Welcome</Text>
 
           <TextInput
             style={styles.textInput}
@@ -88,7 +91,7 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: 'black',
     paddingLeft: 40,
     paddingRight: 40,
   },
@@ -102,7 +105,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     padding:16,
     marginBottom:20,
-    backgroundColor:'#ffffff'
+    backgroundColor:'#BCBEC0'
   },
   button:{
     alignSelf: 'stretch',

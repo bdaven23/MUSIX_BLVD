@@ -32,23 +32,20 @@ export default class EditDashScreen extends Component {
   render() {
     return (
       <Container>
-
-      <Header>
+      <Header style={{backgroundColor:'#000000'}}>
         <Left>
         <Button onPress={this.pop} transparent>
           <IconFeather name='chevron-left' size={26} color={'white'} />
         </Button>
         </Left>
         <Body>
-          <Title>Edit Profile</Title>
+          <Title style={{color:'white'}}>Edit Profile</Title>
         </Body>
         <Right>
         <Button onPress={this.save} transparent>
           <IconFeather name='save' size={26} color={'white'} />
         </Button>
         </Right>
-
-
       </Header>
 
           <ScrollView>

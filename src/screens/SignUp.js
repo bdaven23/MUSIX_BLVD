@@ -28,7 +28,7 @@ export default class MyComponent extends Component {
 
         <View style={styles.container}>
 
-          <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+          <MyStatusBar backgroundColor="#000000" barStyle="light-content" />
 
           <TextInput
             style={styles.textInput}
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: 'black',
     paddingLeft: 40,
     paddingRight: 40,
   },
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     padding:16,
     marginBottom:20,
-    backgroundColor:'#ffffff'
+    backgroundColor:'#BCBEC0'
   },
   button:{
     alignSelf: 'stretch',

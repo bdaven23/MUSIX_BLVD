@@ -17,7 +17,7 @@ const Application = StackNavigator({
       title: 'Sign Up',
       headerTintColor: 'white',
       headerStyle:{
-        backgroundColor: 'blue',
+        backgroundColor: 'black',
         elevation: 0,
         showdowOpacity: 0
       },

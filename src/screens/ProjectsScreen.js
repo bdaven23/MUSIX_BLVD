@@ -22,25 +22,25 @@ export default class ProjectsScreen extends Component {
   render() {
     return (
       <Container>
-        <Header>
-          <Left>
-          <Button onPress={this.openDrawer} transparent>
-            <Icon name='menu' />
-          </Button>
-          </Left>
-          <Body>
-            <Title>New Project</Title>
-          </Body>
-          <Right>
-          <Button onPress={this.save} transparent>
-          <Text>Save</Text>
-          </Button>
-          </Right>
-        </Header>
+      <Header style={{backgroundColor:'#000000'}}>
+        <Left>
+        <Button onPress={this.openDrawer} transparent>
+          <IconFeather name='menu' size={26} color={'white'} />
+        </Button>
+        </Left>
+        <Body>
+          <Title style={{color:'white'}}>New Project</Title>
+        </Body>
+        <Right>
+        <Button onPress={this.save} transparent>
+          <IconFeather name='save' size={26} color={'white'} />
+        </Button>
+        </Right>
+      </Header>
 
         <ScrollView>
 
-        <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'blue', justifyContent: 'center',
+        <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'#00A79D', justifyContent: 'center',
         alignItems: 'center',}}>
         <Text style={{ color:'white'}}>Album Art</Text>
       </View>
