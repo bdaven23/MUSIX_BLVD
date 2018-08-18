@@ -33,6 +33,7 @@ export default class Login extends Component {
           <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
 
           <View style={styles.image}>
+            <Image source={require('./images/MUSIX_BLVD_LOGO-07.png')}/>
           </View>
 
 
