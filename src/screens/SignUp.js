@@ -9,6 +9,9 @@ import {
   TextInput,
   TouchableOpacity,
   StatusBar,
+  Image,
+  Dimensions,
+  ScrollView,
 } from 'react-native';
 
 import { StackNavigator } from 'react-navigation';
@@ -29,6 +32,10 @@ export default class MyComponent extends Component {
         <View style={styles.container}>
 
           <MyStatusBar backgroundColor="#000000" barStyle="light-content" />
+
+
+            <Image style={{position:'absolute', top:0, }} source={require('./images/MUSIX_BLVD_LOGO-07.png')}/>
+
 
           <TextInput
             style={styles.textInput}
@@ -65,14 +72,15 @@ export default class MyComponent extends Component {
             <Text style={styles.btnText}>SIGN UP</Text>
           </TouchableOpacity>
 
-          <View style={{position:'absolute', backgroundColor:'red', left:75, bottom:30, width:50, height:50, borderRadius:25, }}>
-            <Text>BMI</Text>
+          <View style={{position:'absolute', backgroundColor:'black', left:75, bottom:30, width:50, height:50, borderRadius:25, }}>
+            <Image source={require('./images/ASCAP_Logo_Primary_White.png')}/>
           </View>
-          <View style={{position:'absolute', backgroundColor:'orange', right:75, bottom:30, width:50, height:50, borderRadius:25, }}>
-            <Text>ASCAP</Text>
+          <View style={{position:'absolute', backgroundColor:'black', right:75, bottom:30, width:50, height:50, borderRadius:25, }}>
+            <Image source={require('./images/BMI_logo.png')}/>
           </View>
-          <View style={{position:'absolute', backgroundColor:'purple', bottom:30, width:50, height:50, borderRadius:25,}}>
-            <Text>SESAC</Text>
+          <View style={{position:'absolute', alignItems: 'center',
+          justifyContent: 'center', backgroundColor:'black', bottom:30, width:50, height:50, borderRadius:25,}}>
+            <Image source={require('./images/sesac_logo.jpg')}/>
           </View>
           <View style={{}}></View>
 
@@ -109,7 +117,8 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     padding:16,
     marginBottom:20,
-    backgroundColor:'#BCBEC0'
+    backgroundColor:'#BCBEC0',
+    top:30,
   },
   button:{
     alignSelf: 'stretch',
@@ -117,6 +126,7 @@ const styles = StyleSheet.create({
     marginBottom:20,
     backgroundColor:'#5AC6CC',
     alignItems: 'center',
+    top:30,
   },
   btnText:{
     color: 'white',

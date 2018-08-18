@@ -54,7 +54,7 @@ export default class ProjectScreen extends Component {
             <Title style={{color:'white'}}>Project</Title>
           </Body>
           <Right>
-          <Button onPress={this.openDrawer} transparent>
+          <Button onPress={this.save} transparent>
             <IconFeather name='save' size={26} color={'white'} />
           </Button>
           </Right>
@@ -259,6 +259,9 @@ export default class ProjectScreen extends Component {
     }
     pop =() => {
     this.props.navigation.dispatch(popAction);
+    }
+    save = () =>{
+      alert("SAVED")
     }
 
   }
