@@ -51,106 +51,128 @@ export default class FindScreen extends Component {
         <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
       </Header>
 
-          <ScrollView>
-          <Content>
-          <List style={styles.list}>
-          <ListItem itemDivider>
-            <Text>RECENT ARTISTS</Text>
-          </ListItem>
-            <ListItem>
-            <Left>
-              <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
-              alignItems: 'center',}}>
-                <Text>Background Image</Text>
-              </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
-                </View>
-                <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Ashley</Text>
-                <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Rapper</Text>
-                <Text style={{position:'absolute', left:120, bottom:5, fontSize: 18, fontWeight:'normal',}}>Rating 5.0</Text>
-              </View>
-              </Left>
-            </ListItem>
-            <ListItem>
-            <Left>
-              <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
-              alignItems: 'center',}}>
-                <Text>Background Image</Text>
-              </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
-                </View>
-                <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Barry</Text>
-                <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Engineer</Text>
-                <Text style={{position:'absolute', left:120, bottom:5, fontSize: 18, fontWeight:'normal',}}>Rating 4.7</Text>
-              </View>
-              </Left>
-            </ListItem>
-            <ListItem>
-            <Left>
-              <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
-              alignItems: 'center',}}>
-                <Text>Background Image</Text>
-              </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
-                </View>
-                <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Bob</Text>
-                <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Engineer</Text>
-                <Text style={{position:'absolute', left:120, bottom:5, fontSize: 18, fontWeight:'normal',}}>Rating 4.7</Text>
-              </View>
-              </Left>
-            </ListItem>
+      <ScrollView>
+      <Content>
 
-          </List>
-        </Content>
 
-          </ScrollView>
+      <ListItem itemDivider>
+        <Text>Categories</Text>
+      </ListItem>
+
+
+
+      <ScrollView horizontal={true} style={{position:'relative', top:0, width:screen.width, height:80, backgroundColor:'white', flex: 1, flexDirection: 'column', }}>
+
+          <TouchableOpacity style={{flex:0, padding:5, position:'relative', top:0, left:0, backgroundColor:'blue', width:100, height:60, borderRadius:15, marginLeft:10, marginTop:10,  alignItems:'center', justifyContent:'center'}}>
+
+            <Text style={{ color:'white', fontWeight:'bold', position:'absolute', bottom:10,}}>MALE RAP ARTISTS</Text>
+          </TouchableOpacity>
+
+      </ScrollView>
+
+      <ListItem itemDivider >
+        <Text>Recent Profiles</Text>
+      </ListItem>
+
+      <ScrollView horizontal={true} style={{position:'relative', top:0, width:(screen.width *2), height:210, backgroundColor:'white', flex: 1, flexDirection: 'column', }}>
+
+      <TouchableOpacity onPress={this.openProfile}
+      style={styles.callingCard}>
+      <View style={styles.bannerImageView}>
+        <Text>Background Image</Text>
+      </View>
+        <View style={styles.aviImageView}>
+        </View>
+        <Text style={styles.userNameLabel}>A - UserName</Text>
+        <Text style={styles.titleLabel}>TITLE LABEL</Text>
+        <Text style={styles.locationLabel}>City, State</Text>
+        <TouchableOpacity style={styles.connectedBtn}>
+          <View style={styles.connectedIconContainer}>
+            <IconFeather name='check' color={'#5AC6CC'} size={20}/>
+          </View>
+          <Text style={styles.connectedLabel}>Connected</Text>
+        </TouchableOpacity>
+      </TouchableOpacity>
+
+      </ScrollView>
+
+
+<List style={styles.list}>
+      <ListItem itemDivider>
+        <Text>Recent Searches</Text>
+      </ListItem>
+        <ListItem>
+        <Body>
+          <Text>RECENT SEARCH 1</Text>
+        </Body>
+        <Right>
+          <TouchableOpacity>
+            <Text>View</Text>
+          </TouchableOpacity>
+        </Right>
+        </ListItem>
+
+
+
+      </List>
+    </Content>
+
+      </ScrollView>
         </Container>
     );
   }
   openDrawer =() => {
     this.props.navigation.openDrawer();
   }
+
+  openProfile =() =>{
+    this.props.navigation.navigate('FoundProfileScreen');
+  }
+
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:'green',
-  },
   content:{
     color:'white',
   },
   container: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'blue',
-    paddingLeft: 40,
-    paddingRight: 40,
+    flex:1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'blue', paddingLeft: 40, paddingRight: 40,
   },
   header: {
-    fontSize: 24,
-    marginBottom: 20,
-    color: 'white',
-    fontWeight: 'bold',
+    fontSize: 24, marginBottom: 20, color: 'white', fontWeight: 'bold',
   },
   list:{
-    position:'relative',
-    width:screen.width,
-    backgroundColor:'white',
+    position:'relative', width:screen.width, backgroundColor:'white',
   },
   callingCard:{
-    position:'relative',
-    width:screen.width - 20,
-    height:190,
-    backgroundColor:'white',
-    borderRadius:20,
-    borderColor:'black',
-    borderWidth:2,
+    position:'relative', width:screen.width-30, height:190, backgroundColor:'white', top:10, paddingLeft:10,
   },
+
+  bannerImageView:{
+    position:'relative', width:screen.width-30, height:120, backgroundColor:'#00A79D', borderTopLeftRadius:0, borderTopRightRadius:0, justifyContent: 'center', alignItems: 'center',
+  },
+  aviImageView:{
+    position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', borderColor:'white', borderWidth:5, left:10, bottom:10,
+  },
+  userNameLabel:{
+    position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',
+  },
+  titleLabel:{
+    position:'absolute', left:120, bottom:23, fontSize: 16, fontWeight:'normal',
+  },
+  locationLabel:{
+    position:'absolute', left:120, bottom:5, fontSize: 12, fontWeight:'normal',
+  },
+  connectedBtn:{
+    position:'absolute', right:10, bottom:10, justifyContent:'center',
+    backgroundColor:'white', width:100, height:20,
+  },
+  connectedLabel:{
+    fontWeight:'normal', color:'#5AC6CC' ,top:10, left:30,
+  },
+  connectedIconContainer:{
+    position:'absolute', left:10, width:20, height:20, top:10, backgroundColor:'white', top:10,
+  },
+
+
 });

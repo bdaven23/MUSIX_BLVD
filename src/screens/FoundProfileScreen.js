@@ -28,7 +28,7 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
   </View>
 );
 
-export default class ProfileScreen extends Component {
+export default class FoundProfileScreen extends Component {
   _renderItem = (data, i) => (
     <TouchableOpacity onPress={this.openProject} style={[{ backgroundColor: data }, styles.item]} key={i} />
   );
@@ -46,7 +46,7 @@ export default class ProfileScreen extends Component {
             </Button>
             </Left>
             <Body>
-              <Title style={{color:'white'}}>Profile</Title>
+              <Title style={{color:'white'}}>A-USERNAME</Title>
             </Body>
             <Right>
             </Right>

@@ -11,8 +11,10 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
-import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion} from 'native-base'
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label} from 'native-base'
 import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
+import Grid from 'react-native-grid-component';
+
 
 import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
@@ -32,7 +34,7 @@ export default class DashboardScreen extends Component {
       return (
         <Container>
 
-          <Header style={{backgroundColor:'#000000'}}>
+      <Header style={{backgroundColor:'#000000'}}>
             <Left>
             <Button onPress={this.openDrawer} transparent>
               <IconFeather name='menu' size={26} color={'white'} />
@@ -46,29 +48,49 @@ export default class DashboardScreen extends Component {
             <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
           </Header>
 
-        <Content style={styles.wrapper}>
+          <ScrollView>
+         <Content style={styles.wrapper}>
           <View style={styles.container}>
 
-            <Text style={styles.helloLabel}>Hello USERNAME,</Text>
 
-            <View style={styles.callingCard}>
-            <View style={{position:'absolute', width:screen.width, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, top:0, borderTopRightRadius:20, justifyContent: 'center',
+
+          <View style={styles.callingCard}>
+
+            <View style={{position:'relative', width:screen.width-20, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:0, top:0, borderTopRightRadius:0, justifyContent: 'center',
             alignItems: 'center',}}>
-              <Text>Background Image</Text>
+
+              <Image style={{position:'relative', width:screen.width-20, height:120, top:0, justifyContent: 'center',
+              alignItems: 'center',}} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-04-04.png')}
+             />
+
             </View>
-              <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
+
+              <View>
+
+              <Image style={{position:'relative', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:60, borderColor:'white', borderWidth:5,}} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-08.png')}/>
+
               </View>
-              <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>USERNAME</Text>
-              <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Title</Text>
-              <Text style={{position:'absolute', left:120, bottom:5, fontSize: 18, fontWeight:'normal',}}>Rating</Text>
+
+              <Text style={{position:'absolute', left:120, top:125, fontSize: 24, fontWeight:'bold', color:'black'}}>@USERNAME</Text>
+
+              <Text style={{position:'absolute', left:120, top:155, fontSize: 18, fontWeight:'normal', color:'black'}}>TITLE</Text>
+
+              <Text style={{position:'absolute', left:10, bottom:35, fontSize: 18, fontWeight:'normal',}}>City, State</Text>
+
+              <View style={{position:'absolute', left:10, bottom:7, width:18, height:18, backgroundColor:'green', borderRadius:9, }}></View>
+              <Text style={{position:'absolute', left:32, bottom:5, fontSize: 18, fontWeight:'normal', color:'green',}}>Online</Text>
+
+              <Text onPress={this.edit} style={styles.EditLabel}>EDIT</Text>
+
+          </View>
+
+            <View style={{position:'relative', width:screen.width, backgroundColor:'#5AC6CC', top:0, height:50, justifyContent: 'center', alignItems: 'center', borderBottomWidth :3, borderBottomColor: '#000'}}>
+              <Text style={styles.StatisticsLabel}>Statistics</Text>
             </View>
 
-            <Text style={styles.StatisticsLabel}>STATISTICS</Text>
-
-            <View style={styles.line}></View>
-
+            <View style={{flex: 1, flexDirection: 'row'}}>
               <View style={styles.songsContainer}>
-                <Text style={{fontSize: 18, fontWeight:'normal',}}>SONGS</Text>
+                <Text style={{fontSize: 18, fontWeight:'normal',}}>Songs</Text>
                 <Text style={{fontSize: 32, fontWeight:'bold',}}>22</Text>
               </View>
 
@@ -81,12 +103,11 @@ export default class DashboardScreen extends Component {
                 <Text style={{fontSize: 18, fontWeight:'normal',}}>Connections</Text>
                 <Text style={{fontSize: 32, fontWeight:'bold',}}>500</Text>
               </View>
+            </View>
 
-              <View style={styles.line2}></View>
-
-              <Text style={styles.InteractionLabel}>INTERACTION</Text>
-              <Text onPress={this.edit} style={styles.EditLabel}>EDIT</Text>
-              <View style={styles.line3}></View>
+            <View style={{position:'relative', width:screen.width, backgroundColor:'#5AC6CC', top:0, height:50, justifyContent: 'center', alignItems: 'center', borderBottomWidth:3, borderBottomColor: '#000'}}>
+              <Text style={styles.ActivityLabel}>Activity</Text>
+            </View>
 
           </View>
           <List style={styles.list}>
@@ -100,29 +121,10 @@ export default class DashboardScreen extends Component {
                 </Button>
               </Right>
             </ListItem>
-            <ListItem>
-              <Left>
-                <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>WRITER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
-              </Left>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-            <ListItem>
-              <Left>
-                <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ENGINEER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
-              </Left>
-              <Right>
-                <Button transparent>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
           </List>
         </Content>
 
+          </ScrollView>
         </Container>
       );
     }
@@ -135,111 +137,36 @@ export default class DashboardScreen extends Component {
 
   }
 
-
 const styles = StyleSheet.create({
   wrapper:{
     flex:1,
   },
   container:{
     flex:1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  helloLabel:{
-    position:'absolute',
-    fontSize: 26,
-    fontWeight:'normal',
-    color:'black',
-    left:10,
-    top:10,
   },
   callingCard:{
-    position:'absolute',
-    top:55,
-    width:screen.width,
-    height:190,
-    backgroundColor:'white',
-    borderRadius:20,
-    borderColor:'black',
-    borderWidth:2,
+    position:'relative', top:0, width:screen.width, height:255, backgroundColor:'white', borderRadius:0, borderColor:'white', borderWidth:10,
   },
   StatisticsLabel:{
-    position:'absolute',
-    top:265,
-    fontSize: 26,
-    fontWeight:'bold',
-    color:'black',
-    left:20
+    position:'relative', top:0, fontSize: 26, fontWeight:'bold', color:'white',
   },
   songsContainer:{
-    position:'absolute',
-    top:300,
-    width:screen.width/3,
-    height:60,
-    backgroundColor:'white',
-    left:0,
-    alignItems: 'center',
+    position:'relative', top:0, width:screen.width/3, height:60, backgroundColor:'white', left:0, alignItems: 'center',
   },
   featuredWorkContainer:{
-    position:'absolute',
-    top:300,
-    width:screen.width/3,
-    height:60,
-    backgroundColor:'white',
-    alignItems: 'center',
+    position:'relative', top:0, width:screen.width/3, height:60, backgroundColor:'white', alignItems: 'center',
   },
   connectionsContainer:{
-    position:'absolute',
-    top:300,
-    width:screen.width/3,
-    height:60,
-    backgroundColor:'white',
-    right:0,
-    alignItems: 'center',
+    position:'relative', top:0, width:screen.width/3, height:60, backgroundColor:'white', right:0, alignItems: 'center',
   },
-  line:{
-    position:'absolute',
-    top:297,
-    width:screen.width,
-    height:2,
-    backgroundColor:'white',
-  },
-  line2:{
-    position:'absolute',
-    top:360,
-    width:screen.width,
-    height:2,
-    backgroundColor:'grey',
-  },
-  InteractionLabel:{
-    position:'absolute',
-    top:365,
-    fontSize: 26,
-    fontWeight:'bold',
-    color:'black',
-    left:20
-  },
-  line3:{
-    position:'absolute',
-    top:400,
-    width:screen.width,
-    height:2,
-    backgroundColor:'white',
+  ActivityLabel:{
+    position:'absolute', fontSize: 26, fontWeight:'bold', color:'white',
   },
   EditLabel:{
-    position:'absolute',
-    top:375,
-    fontSize: 16,
-    fontWeight:'bold',
-    color:'#5AC6CC',
-    right:20
+    position:'absolute', fontSize: 16, fontWeight:'bold', color:'black', right:10, bottom:10,
   },
   list:{
-    position:'absolute',
-    top:400,
-    width:screen.width,
-    height:300,
-    backgroundColor:'white',
+    position:'relative', top:0, width:screen.width, backgroundColor:'white',
   },
 
 })

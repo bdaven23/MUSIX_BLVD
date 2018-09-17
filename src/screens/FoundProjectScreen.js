@@ -27,6 +27,10 @@ const popAction = StackActions.pop({
   n: 1,
 });
 
+const pushAction = StackActions.push({
+  routeName:'FoundProfileScreen',
+});
+
 const MyStatusBar = ({backgroundColor, ...props}) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
     <StatusBar translucent backgroundColor={backgroundColor} {...props} />
@@ -34,7 +38,7 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
 );
 
 
-export default class ProjectScreen extends Component {
+export default class FoundProjectScreen extends Component {
   _renderItem = (data, i) => (
     <View style={[{ backgroundColor: data }, styles.item]} key={i} />
   );
@@ -51,10 +55,10 @@ export default class ProjectScreen extends Component {
           </Button>
           </Left>
           <Body>
-            <Title style={{color:'white'}}>Project</Title>
+            <Title style={{color:'white'}}>Found Project</Title>
           </Body>
           <Right>
-          
+
           </Right>
           <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
         </Header>
@@ -109,7 +113,9 @@ export default class ProjectScreen extends Component {
               <Text>Artist</Text>
             </Left>
             <Body>
-              <Text>ARTIST NAME</Text>
+              <TouchableOpacity onPress={this.openProfile}>
+                <Text>ARTIST NAME</Text>
+              </TouchableOpacity>
             </Body>
           </ListItem>
 
@@ -118,7 +124,9 @@ export default class ProjectScreen extends Component {
               <Text>Featuring Artsist</Text>
             </Left>
             <Body>
-              <Text>ARTIST 2</Text>
+              <TouchableOpacity onPress={this.openProfile}>
+                <Text>ARTIST 2</Text>
+              </TouchableOpacity>
             </Body>
           </ListItem>
 
@@ -127,7 +135,9 @@ export default class ProjectScreen extends Component {
               <Text>Writer</Text>
             </Left>
             <Body>
-              <Text>WRTIER 1</Text>
+              <TouchableOpacity onPress={this.openProfile}>
+                <Text>WRTIER 1</Text>
+              </TouchableOpacity>
             </Body>
           </ListItem>
 
@@ -136,7 +146,9 @@ export default class ProjectScreen extends Component {
               <Text>Producer</Text>
             </Left>
             <Body>
+            <TouchableOpacity onPress={this.openProfile}>
               <Text>PRODUCER 1</Text>
+            </TouchableOpacity>
             </Body>
           </ListItem>
 
@@ -145,7 +157,9 @@ export default class ProjectScreen extends Component {
               <Text>Engineer</Text>
             </Left>
             <Body>
+            <TouchableOpacity onPress={this.openProfile}>
               <Text>ENGINEER 1</Text>
+            </TouchableOpacity>
             </Body>
           </ListItem>
 
@@ -258,6 +272,9 @@ export default class ProjectScreen extends Component {
     pop =() => {
     this.props.navigation.dispatch(popAction);
     }
+    openProfile =() => {
+      this.props.navigation.dispatch(pushAction);
+    }
 
 
   }
@@ -268,15 +285,11 @@ const styles = StyleSheet.create({
     flex:1,
   },
   container:{
-    flex:1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex:1, justifyContent: 'center', alignItems: 'center',
   },
 
   list:{
-    position:'relative',
-    width:screen.width,
-    backgroundColor:'white',
+    position:'relative', width:screen.width, backgroundColor:'white',
   },
 
 })

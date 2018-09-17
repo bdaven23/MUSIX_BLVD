@@ -57,54 +57,30 @@ export default class ConnectionsScreen extends Component {
           <ListItem itemDivider>
             <Text>A</Text>
           </ListItem>
-            <ListItem>
-            <Left>
-              <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
-              alignItems: 'center',}}>
+            <ListItem >
+            <Body>
+              <TouchableOpacity style={styles.callingCard}>
+              <View style={styles.bannerImageView}>
                 <Text>Background Image</Text>
               </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
+                <View style={styles.aviImageView}>
                 </View>
-                <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Ashley</Text>
-                <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Rapper</Text>
-                <Text style={{position:'absolute', left:120, bottom:5, fontSize: 18, fontWeight:'normal',}}>Rating 5.0</Text>
-              </View>
-              </Left>
+                <Text style={styles.userNameLabel}>A - UserName</Text>
+                <Text style={styles.titleLabel}>TITLE LABEL</Text>
+                <Text style={styles.locationLabel}>City, State</Text>
+                <TouchableOpacity style={styles.connectedBtn}>
+                  <View style={styles.connectedIconContainer}>
+                    <IconFeather name='check' color={'#5AC6CC'} size={20}/>
+                  </View>
+                  <Text style={styles.connectedLabel}>Connected</Text>
+                </TouchableOpacity>
+              </TouchableOpacity>
+              </Body>
             </ListItem>
             <ListItem itemDivider>
               <Text>B</Text>
             </ListItem>
-            <ListItem>
-            <Left>
-              <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
-              alignItems: 'center',}}>
-                <Text>Background Image</Text>
-              </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
-                </View>
-                <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Barry</Text>
-                <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Engineer</Text>
-                <Text style={{position:'absolute', left:120, bottom:5, fontSize: 18, fontWeight:'normal',}}>Rating 4.7</Text>
-              </View>
-              </Left>
-            </ListItem>
-            <ListItem>
-            <Left>
-              <View style={styles.callingCard}>
-              <View style={{position:'relative', width:styles.callingCard.width-2, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:20, borderTopRightRadius:20, justifyContent: 'center',
-              alignItems: 'center',}}>
-                <Text>Background Image</Text>
-              </View>
-                <View style={{position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:10,}}>
-                </View>
-                <Text style={{position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',}}>Bob</Text>
-                <Text style={{position:'absolute', left:120, bottom:23, fontSize: 18, fontWeight:'normal',}}>Engineer</Text>
-                <Text style={{position:'absolute', left:120, bottom:5, fontSize: 18, fontWeight:'normal',}}>Rating 4.7</Text>
-              </View>
-              </Left>
-            </ListItem>
+
 
           </List>
         </Content>
@@ -119,41 +95,47 @@ export default class ConnectionsScreen extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems:'center',
-    justifyContent:'center',
-    backgroundColor:'green',
-  },
   content:{
     color:'white',
   },
   container: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'blue',
-    paddingLeft: 40,
-    paddingRight: 40,
+    flex:1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'blue', paddingLeft: 40, paddingRight: 40,
   },
   header: {
-    fontSize: 24,
-    marginBottom: 20,
-    color: 'white',
-    fontWeight: 'bold',
+    fontSize: 24, marginBottom: 20, color: 'white', fontWeight: 'bold',
   },
   list:{
-    position:'relative',
-    width:screen.width,
-    backgroundColor:'white',
+    position:'relative', width:screen.width, backgroundColor:'white',
   },
   callingCard:{
-    position:'relative',
-    width:screen.width - 20,
-    height:190,
-    backgroundColor:'white',
-    borderRadius:20,
-    borderColor:'black',
-    borderWidth:2,
+    position:'relative', width:screen.width-30, height:190, backgroundColor:'white',
   },
+
+  bannerImageView:{
+    position:'relative', width:screen.width-30, height:120, backgroundColor:'#00A79D', borderTopLeftRadius:0, borderTopRightRadius:0, justifyContent: 'center', alignItems: 'center',
+  },
+  aviImageView:{
+    position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', borderColor:'white', borderWidth:5, left:10, bottom:10,
+  },
+  userNameLabel:{
+    position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',
+  },
+  titleLabel:{
+    position:'absolute', left:120, bottom:23, fontSize: 16, fontWeight:'normal',
+  },
+  locationLabel:{
+    position:'absolute', left:120, bottom:5, fontSize: 12, fontWeight:'normal',
+  },
+  connectedBtn:{
+    position:'absolute', right:0, bottom:10, justifyContent:'center',
+    backgroundColor:'white', width:100, height:20,
+  },
+  connectedLabel:{
+    fontWeight:'normal', color:'#5AC6CC' ,top:10, left:30,
+  },
+  connectedIconContainer:{
+    position:'absolute', left:10, width:20, height:20, top:10, backgroundColor:'white', top:10,
+  },
+
+
 });

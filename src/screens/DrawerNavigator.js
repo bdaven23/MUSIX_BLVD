@@ -8,6 +8,7 @@ import { StackNavigator, DrawerNavigator, createStackNavigator } from 'react-nav
 
 import DashboardScreen from './DashboardScreen';
 import ProfileScreen from './ProfileScreen';
+import FoundProfileScreen from './FoundProfileScreen';
 import ProjectsScreen from './ProjectsScreen';
 import FindScreen from './FindScreen';
 import ConnectionsScreen from './ConnectionsScreen';
@@ -49,13 +50,22 @@ const SettingsStackNavigator = StackNavigator({
 
 });
 
+const FindStackNavigator = StackNavigator({
+  Explore:{ screen: FindScreen},
+  FoundProfile:{screen: FoundProfileScreen},
+
+
+},{
+  headerMode: 'none',
+});
+
 
 
 const AppDrawerNavigator = DrawerNavigator ({
     Dashboard : {screen:DashboardStackNavigator },
     Profile: { screen: ProfileStackNavigator },
     Projects: { screen: ProjectsScreen },
-    Explore: { screen: FindScreen },
+    Explore: { screen: FindStackNavigator },
     Connections: { screen: ConnectionsScreen },
     Settings: { screen: SettingsStackNavigator },
 })
