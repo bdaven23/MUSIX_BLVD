@@ -28,6 +28,13 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
   </View>
 );
 
+const popAction = StackActions.pop({
+  n: 1,
+});
+const pushAction = StackActions.push({
+  routeName:'FoundProjectScreen',
+})
+
 export default class FoundProfileScreen extends Component {
   _renderItem = (data, i) => (
     <TouchableOpacity onPress={this.openProject} style={[{ backgroundColor: data }, styles.item]} key={i} />
@@ -41,12 +48,12 @@ export default class FoundProfileScreen extends Component {
         <Container>
           <Header style={{backgroundColor:'#000000'}}>
             <Left>
-            <Button onPress={this.openDrawer} transparent>
-              <IconFeather name='menu' size={26} color={'white'} />
+            <Button onPress={this.pop} transparent>
+              <IconFeather name='chevron-left' size={26} color={'white'} />
             </Button>
             </Left>
             <Body>
-              <Title style={{color:'white'}}>A-USERNAME</Title>
+              <Title style={{color:'white'}}>Found Profile</Title>
             </Body>
             <Right>
             </Right>
@@ -221,7 +228,7 @@ export default class FoundProfileScreen extends Component {
             <Text style={styles.projectsLabel}>PROJECTS</Text>
 
             <View
-            style={{position:'relative', width:screen.width, backgroundColor:'grey', top: 70, height:500}}>
+            style={{position:'relative', width:screen.width, backgroundColor:'white', top: 70, height:580}}>
             <Grid
 
                 onPress={this.openProject}
@@ -244,10 +251,13 @@ export default class FoundProfileScreen extends Component {
       this.props.navigation.openDrawer();
     }
     openProject =() => {
-      this.props.navigation.navigate('ProjectScreen');
+      this.props.navigation.dispatch(pushAction);
     }
     alert =() =>{
       alert("BUTTON PRESSED")
+    }
+    pop =() => {
+    this.props.navigation.dispatch(popAction);
     }
 
   }

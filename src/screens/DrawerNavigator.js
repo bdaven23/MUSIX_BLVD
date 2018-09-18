@@ -9,7 +9,9 @@ import { StackNavigator, DrawerNavigator, createStackNavigator } from 'react-nav
 import DashboardScreen from './DashboardScreen';
 import ProfileScreen from './ProfileScreen';
 import FoundProfileScreen from './FoundProfileScreen';
+import FoundProjectScreen from './FoundProjectScreen';
 import ProjectsScreen from './ProjectsScreen';
+import EditProjectsScreen from'./EditProjectsScreen'
 import FindScreen from './FindScreen';
 import ConnectionsScreen from './ConnectionsScreen';
 import SettingsScreen from './SettingsScreen';
@@ -28,7 +30,9 @@ import IconFeather from 'react-native-vector-icons/Feather';
 
 const ProfileStackNavigator = StackNavigator({
   Profile:{ screen: ProfileScreen},
-  ProjectScreen:{ screen: ProjectScreen}
+  ProjectScreen:{ screen: ProjectScreen},
+  FoundProfileScreen:{screen: FoundProfileScreen},
+  EditProjectsScreen:{screen: EditProjectsScreen},
 },{
   headerMode: 'none',
 
@@ -52,7 +56,18 @@ const SettingsStackNavigator = StackNavigator({
 
 const FindStackNavigator = StackNavigator({
   Explore:{ screen: FindScreen},
-  FoundProfile:{screen: FoundProfileScreen},
+  FoundProfileScreen:{screen: FoundProfileScreen},
+  FoundProjectScreen:{screen: FoundProjectScreen},
+
+
+},{
+  headerMode: 'none',
+});
+
+const ConnectionsStackNavigator = StackNavigator({
+  Connections:{ screen: ConnectionsScreen},
+  FoundProfileScreen:{screen: FoundProfileScreen},
+  FoundProjectScreen:{screen: FoundProjectScreen},
 
 
 },{
@@ -60,13 +75,12 @@ const FindStackNavigator = StackNavigator({
 });
 
 
-
 const AppDrawerNavigator = DrawerNavigator ({
     Dashboard : {screen:DashboardStackNavigator },
     Profile: { screen: ProfileStackNavigator },
     Projects: { screen: ProjectsScreen },
     Explore: { screen: FindStackNavigator },
-    Connections: { screen: ConnectionsScreen },
+    Connections: { screen: ConnectionsStackNavigator },
     Settings: { screen: SettingsStackNavigator },
 })
 

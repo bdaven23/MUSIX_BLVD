@@ -28,6 +28,10 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
   </View>
 );
 
+const pushAction = StackActions.push({
+  routeName:'FoundProjectScreen',
+})
+
 export default class ProfileScreen extends Component {
   _renderItem = (data, i) => (
     <TouchableOpacity onPress={this.openProject} style={[{ backgroundColor: data }, styles.item]} key={i} />
@@ -46,7 +50,7 @@ export default class ProfileScreen extends Component {
             </Button>
             </Left>
             <Body>
-              <Title style={{color:'white'}}>Profile</Title>
+              <Title style={{color:'white'}}>My Profile</Title>
             </Body>
             <Right>
             </Right>
@@ -134,7 +138,7 @@ export default class ProfileScreen extends Component {
 
             <Text style={styles.recentFeaturesLabel}>RECENT FEATURES</Text>
 
-            <TouchableOpacity style={{position:'absolute', top:730, right:5, height:30, width:80,
+            <TouchableOpacity style={{position:'absolute', top:770, right:5, height:30, width:80,
              backgroundColor:'white', zIndex:999, alignItems:'center',}}>
               <Text style={styles.seeAllLabel}>See All</Text>
             </TouchableOpacity>
@@ -143,9 +147,13 @@ export default class ProfileScreen extends Component {
 
             <ScrollView horizontal={true} style={styles.scrollView}>
 
-              <View>
+              <TouchableOpacity
+              onPress={this.featuresPush}
+              style={{backgroundColor:'white', width:120, height:180, position:'absolute', top:0, left:10, alignItems:'center' }}>
                 <Image style={styles.recentsImage} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-08.png')}/>
-              </View>
+                <Text style={{position:'absolute', bottom:20,}}>Song Name</Text>
+                <Text style={{position:'absolute', bottom:0,}}>Artist</Text>
+              </TouchableOpacity>
             </ScrollView>
              </View>
 
@@ -221,7 +229,7 @@ export default class ProfileScreen extends Component {
             <Text style={styles.projectsLabel}>PROJECTS</Text>
 
             <View
-            style={{position:'relative', width:screen.width, backgroundColor:'grey', top: 70, height:500}}>
+            style={{position:'relative', width:screen.width, backgroundColor:'white', top: 70, height:580}}>
             <Grid
 
                 onPress={this.openProject}
@@ -248,6 +256,9 @@ export default class ProfileScreen extends Component {
     }
     alert =() =>{
       alert("BUTTON PRESSED")
+    }
+    featuresPush=()=>{
+      this.props.navigation.dispatch(pushAction);
     }
 
   }
@@ -317,10 +328,10 @@ const styles = StyleSheet.create({
     position:'absolute', top:600, alignSelf:'center', fontSize: 26, fontWeight:'bold', color:'black', zIndex:1000,
   },
   scrollView:{
-    position:'relative', height:140, paddingLeft:10, top:70, backgroundColor:'white',
+    position:'relative', height:180, paddingLeft:10, top:70, backgroundColor:'white',
   },
   recentsImage:{
-    position:'absolute', top:35, height:100, width:100, borderRadius:50, paddingLeft:5, borderColor:'black', left:10, borderWidth:5,
+    position:'absolute', top:35, height:100, width:100, borderRadius:5, paddingLeft:5, borderColor:'black', left:10, borderWidth:5,
   },
   seeAllLabel:{
     fontSize: 18, fontWeight:'bold', color:'grey',

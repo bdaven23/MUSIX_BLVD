@@ -51,10 +51,13 @@ export default class ProjectScreen extends Component {
           </Button>
           </Left>
           <Body>
-            <Title style={{color:'white'}}>Project</Title>
+            <Title style={{color:'white'}}> My Project</Title>
           </Body>
           <Right>
-          
+          <Button onPress={this.editProject} transparent>
+            <IconFeather name='edit' size={26} color={'white'} />
+          </Button>
+
           </Right>
           <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
         </Header>
@@ -257,6 +260,9 @@ export default class ProjectScreen extends Component {
     }
     pop =() => {
     this.props.navigation.dispatch(popAction);
+    }
+    editProject =() =>{
+      this.props.navigation.navigate('EditProjectsScreen');
     }
 
 

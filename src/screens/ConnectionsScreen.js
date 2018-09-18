@@ -59,7 +59,7 @@ export default class ConnectionsScreen extends Component {
           </ListItem>
             <ListItem >
             <Body>
-              <TouchableOpacity style={styles.callingCard}>
+              <TouchableOpacity onPress={this.openProfile} style={styles.callingCard}>
               <View style={styles.bannerImageView}>
                 <Text>Background Image</Text>
               </View>
@@ -91,6 +91,9 @@ export default class ConnectionsScreen extends Component {
   }
   openDrawer =() => {
     this.props.navigation.openDrawer();
+  }
+  openProfile=() => {
+    this.props.navigation.navigate('FoundProfileScreen')
   }
 }
 

@@ -1,16 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  KeyboardAvoidingView,
-  TextInput,
-  TouchableOpacity,
-  StatusBar,
-  Image,
-  Dimensions,
-  ScrollView,
-} from 'react-native';
+import {View, Text, StyleSheet, KeyboardAvoidingView, TextInput, TouchableOpacity, StatusBar, Image, Dimensions, ScrollView, AsyncStorage, Keyboard} from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
 
@@ -26,6 +15,69 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
 );
 
 export default class Login extends Component {
+  constructor(props){
+  		super(props)
+  		this.state={
+  			userEmail:'',
+  			userPassword:''
+  		}
+  	}
+
+  	login = () =>{
+  		const {userEmail,userPassword} = this.state;
+  		let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/ ;
+  		if(userEmail==""){
+  			//alert("Please enter Email address");
+  		  this.setState({email:'Please enter Email address'})
+
+  		}
+
+  		else if(reg.test(userEmail) === false)
+  		{
+  		//alert("Email is Not Correct");
+  		this.setState({email:'Email is Not Correct'})
+  		return false;
+  		  }
+
+  		else if(userPassword==""){
+  		this.setState({email:'Please enter password'})
+  		}
+  		else{
+
+  		fetch('https://musixblvd.com/login.php',{
+  			method:'post',
+  			header:{
+  				'Accept': 'application/json',
+  				'Content-type': 'application/json'
+  			},
+  			body:JSON.stringify({
+  				// we will pass our input data to server
+  				email: userEmail,
+  				password: userPassword
+  			})
+
+  		})
+  		.then((response) => response.json())
+  		 .then((responseJson)=>{
+  			 if(responseJson == "ok"){
+  				 // redirect to profile page
+  				 alert("Successfully Login");
+  				 this.props.navigation.navigate("Profile");
+  			 }else{
+  				 alert("Wrong Login Details");
+  			 }
+  		 })
+  		 .catch((error)=>{
+  		 console.error(error);
+  		 });
+  		}
+
+
+  		Keyboard.dismiss();
+  	}
+
+
+
   render() {
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
@@ -43,24 +95,32 @@ export default class Login extends Component {
 
           <TextInput
             style={styles.textInput}
-            placeholder='user_login'
-            onChangeText ={ (user_login) => this.setState ({user_login})}
+            placeholder='Email'
+            onChangeText ={(text) => this.setState({userEmail:text})}
             underlineColorAndroid='transparent'
+            returnKeyType="next"
+            keyboardType='email-address'
+            autoCorrect={false}
+            onSubmitEditing={() => this.passwordInput.focus()}
           />
 
           <TextInput
             style={styles.textInput}
-            placeholder='user_pass'
-            onChangeText ={ (user_pass) => this.setState ({user_pass})}
+            placeholder='Password'
+            onChangeText ={(text) => this.setState({userPassword:text})}
             underlineColorAndroid='transparent'
             secureTextEntry={true}
+            returnKeyType="go"
+            ref={(input)=> this.passwordInput = input}
           />
 
           <TouchableOpacity
             style={styles.button}
-            onPress={this.login}>
+            onPress={this.loginPush}>
+
             <Text style={styles.btnText}>Login</Text>
           </TouchableOpacity>
+
             <Text style={{bottom:190, position:'absolute', color:'white', }}>OR CONTINUE WITH</Text>
 
             <View style={{position:'absolute', backgroundColor:'black', left:75, bottom:130, width:50, height:50, borderRadius:25, }}>
@@ -80,20 +140,24 @@ export default class Login extends Component {
 
 
             <Text style={styles.noAcctLabel}>Dont have an Account?</Text>
-            <Text  onPress={this.signUp} style={styles.SignUp}>JOIN HERE</Text>
+            <Text  onPress={this.signUpPush} style={styles.SignUp}>JOIN HERE</Text>
         </View>
 
       </KeyboardAvoidingView>
 
-    );
+    )
   }
 
-  signUp =() => {
+
+  signUpPush =() => {
     this.props.navigation.navigate('SignUp');
+    console.warn('Sign Up Push');
+
   }
 
-  login =() => {
+  loginPush =() => {
     this.props.navigation.navigate('DrawerNavigator');
+    console.warn('Login is OK');
   }
 }
 
@@ -102,53 +166,27 @@ const styles = StyleSheet.create({
     flex:1,
   },
   container: {
-    flex:1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'black',
-    paddingLeft: 40,
-    paddingRight: 40,
+    flex:1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black', paddingLeft: 40, paddingRight: 40,
   },
   header: {
-    fontSize: 24,
-    marginBottom: 20,
-    color: 'white',
-    fontWeight: 'bold',
+    fontSize: 24, marginBottom: 20, color: 'white', fontWeight: 'bold',
   },
   textInput:{
-    alignSelf: 'stretch',
-    padding:16,
-    marginBottom:20,
-    backgroundColor:'#BCBEC0'
+    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#BCBEC0'
   },
   button:{
-    alignSelf: 'stretch',
-    padding:16,
-    marginBottom:20,
-    backgroundColor:'#5AC6CC',
-    alignItems: 'center',
+    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#5AC6CC', alignItems: 'center',
   },
   btnText:{
     color: 'white',
   },
   noAcctLabel:{
-    color:'white',
-    fontSize:10,
-    position:'absolute',
-    bottom:50,
+    color:'white', fontSize:10, position:'absolute', bottom:50,
   },
   SignUp:{
-    color:'white',
-    fontWeight:'bold',
-    fontSize:14,
-    position:'absolute',
-    bottom:30,
+    color:'white', fontWeight:'bold', fontSize:14, position:'absolute', bottom:30,
   },
   image:{
-    width:150,
-    height:150,
-    position:'absolute',
-    backgroundColor:'black',
-    top:50,
+    width:150, height:150, position:'absolute', backgroundColor:'black', top:50,
   },
 });

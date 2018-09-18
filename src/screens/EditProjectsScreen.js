@@ -29,19 +29,19 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
   </View>
 );
 
-export default class ProjectsScreen extends Component {
+export default class EditProjectsScreen extends Component {
   render() {
     return (
       <Container>
 
       <Header style={{backgroundColor:'#000000'}}>
         <Left>
-        <Button onPress={this.openDrawer} transparent>
-          <IconFeather name='menu' size={26} color={'white'} />
+        <Button onPress={this.pop} transparent>
+          <IconFeather name='chevron-left' size={26} color={'white'} />
         </Button>
         </Left>
         <Body>
-          <Title style={{color:'white'}}>New Project</Title>
+          <Title style={{color:'white'}}>Edit Project</Title>
         </Body>
         <Right>
         <Button onPress={this.save} transparent>
@@ -161,11 +161,12 @@ export default class ProjectsScreen extends Component {
       </Container>
     );
   }
-  openDrawer =() => {
-    this.props.navigation.openDrawer();
-  }
+  
   save = () =>{
     alert("SAVED")
+  }
+  pop =() => {
+  this.props.navigation.dispatch(popAction);
   }
 }
 
