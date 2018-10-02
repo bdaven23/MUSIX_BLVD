@@ -29,6 +29,10 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
   </View>
 );
 
+const popAction = StackActions.pop({
+  n: 1,
+});
+
 export default class EditProjectsScreen extends Component {
   render() {
     return (
@@ -161,7 +165,7 @@ export default class EditProjectsScreen extends Component {
       </Container>
     );
   }
-  
+
   save = () =>{
     alert("SAVED")
   }

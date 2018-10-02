@@ -1,5 +1,3 @@
-/* @flow */
-
 import React, { Component } from 'react';
 import {
   View,
@@ -13,10 +11,21 @@ import {
   Dimensions,
   ScrollView,
 } from 'react-native';
+import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label} from 'native-base'
+import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
+import Grid from 'react-native-grid-component';
 
-import { StackNavigator } from 'react-navigation';
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
+import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import IconFeather from 'react-native-vector-icons/Feather';
+
+
+const screen = Dimensions.get('window');
 
 import Login from './Login';
+
+import Modal from "react-native-modal";
 
 const MyStatusBar = ({backgroundColor, ...props}) => (
   <View style={[styles.statusBar, { backgroundColor }]}>
@@ -25,6 +34,9 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
 );
 
 export default class MyComponent extends Component {
+  state = {
+    isModalVisible: true
+  };
   render() {
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.wrapper}>
@@ -33,8 +45,39 @@ export default class MyComponent extends Component {
 
           <MyStatusBar backgroundColor="#000000" barStyle="light-content" />
 
+          <Modal isVisible={this.state.isModalVisible}>
+            <View style={{ flex: 1 , position:'absolute', alignItems:'center', width:screen.width - 40,  height:500, backgroundColor:'rgba(255, 255, 255, 0.9)', }}>
+            <TouchableOpacity onPress={this._toggleModal}style={{position:'absolute', top:0, right:10, width:50, height:50, backgroundColor:'rgba(255, 255, 255, 0.0)', alignItems:'center', justifyContent:'center', }}>
+            <IconFeather name='x' size={26} color={'black'} />
+            </TouchableOpacity>
+              <Text style={{fontSize:20, fontWeight:'bold',  top:50,}}>Performance Rights Organizations</Text>
+              <Text style={{fontSize:16, fontWeight:'normal', top:50, margin: 25,}}>A Performance Rights Organization (PRO) is an agency that ensures songwriters and publishers are paid for the use of their music by collecting royalties on behalf of the right owner.</Text>
+              <Text style={{fontSize:16, fontWeight:'normal', top:50, margin: 25,}}>PROs collect public performance royalties. When a song is played in public, like on any kind of radio (AM/FM, streaming, or satellite), in a venue, or TV show and commercials, it is required that they pay for the use. The PRO collects those payments, and distributes them to the right holders.</Text>
 
-            <Image style={{position:'absolute', top:0, }} source={require('./images/MUSIX_BLVD_LOGO-07.png')}/>
+              <View
+              style={{position:'absolute',  left:30, bottom:0, width:50, height:50, borderRadius:25, }}>
+                <Image source={require('./images/ASCAP_Logo_Primary_White.png')}/>
+              </View>
+              <View
+              style={{position:'absolute',  right:30, bottom:0, width:50, height:50, borderRadius:25, }}>
+                <Image source={require('./images/BMI_logo.png')}/>
+              </View>
+              <View
+              style={{position:'absolute', alignItems: 'center',
+              justifyContent: 'center', bottom:0, width:50, height:50, left:100, borderRadius:25,}}>
+                <Image source={require('./images/sesac_logo.jpg')}/>
+              </View>
+              <View
+              style={{position:'absolute', alignItems: 'center',
+              justifyContent: 'center', bottom:0, width:50, height:50, right:100, borderRadius:25,}}>
+                <Image source={require('./images/sx_logo_72.png')}/>
+              </View>
+            </View>
+          </Modal>
+
+
+            <Image onPress={this._toggleModal}
+            style={{position:'absolute', top:0, }} source={require('./images/MUSIX_BLVD_LOGO-07.png')}/>
 
 
           <TextInput
@@ -72,18 +115,6 @@ export default class MyComponent extends Component {
             <Text style={styles.btnText}>SIGN UP</Text>
           </TouchableOpacity>
 
-          <View style={{position:'absolute', backgroundColor:'black', left:75, bottom:30, width:50, height:50, borderRadius:25, }}>
-            <Image source={require('./images/ASCAP_Logo_Primary_White.png')}/>
-          </View>
-          <View style={{position:'absolute', backgroundColor:'black', right:75, bottom:30, width:50, height:50, borderRadius:25, }}>
-            <Image source={require('./images/BMI_logo.png')}/>
-          </View>
-          <View style={{position:'absolute', alignItems: 'center',
-          justifyContent: 'center', backgroundColor:'black', bottom:30, width:50, height:50, borderRadius:25,}}>
-            <Image source={require('./images/sesac_logo.jpg')}/>
-          </View>
-          <View style={{}}></View>
-
         </View>
 
       </KeyboardAvoidingView>
@@ -93,6 +124,12 @@ export default class MyComponent extends Component {
   signUpComplete =() => {
     this.props.navigation.navigate('Login');
   }
+  pushCompanyQuestions =()=> {
+    this.props.navigation.navigate('CompanyQuestionsPage');
+  }
+  _toggleModal = () =>
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+
 }
 
 const styles = StyleSheet.create({

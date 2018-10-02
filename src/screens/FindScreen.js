@@ -106,9 +106,6 @@ export default class FindScreen extends Component {
           <Text>RECENT SEARCH 1</Text>
         </Body>
         <Right>
-          <TouchableOpacity>
-            <Text>View</Text>
-          </TouchableOpacity>
         </Right>
         </ListItem>
 

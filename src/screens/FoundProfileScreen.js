@@ -20,6 +20,8 @@ import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 
+import Modal from "react-native-modal";
+
 const screen = Dimensions.get('window');
 
 const MyStatusBar = ({backgroundColor, ...props}) => (
@@ -37,11 +39,19 @@ const pushAction = StackActions.push({
 
 export default class FoundProfileScreen extends Component {
   _renderItem = (data, i) => (
-    <TouchableOpacity onPress={this.openProject} style={[{ backgroundColor: data }, styles.item]} key={i} />
+    <TouchableOpacity  style={styles.item} onPress={this.openProject} >
+    <View style={[{ backgroundColor: data }, styles.item]} key={i} />
+    <Text style={{fontSize:16, fontWeight:'bold', alignSelf:'center',}}>Track Title</Text>
+    <Text style={{fontSize:12, fontWeight:'normal', alignSelf:'center',}}>Artist Name</Text>
+    <Text style={{fontSize:12, fontWeight:'normal', alignSelf:'center',}}>Job title</Text>
+    </TouchableOpacity>
   );
 
   _renderPlaceholder = i => <TouchableOpacity onPress={this.openProject} style={styles.item} key={i} />;
 
+  state = {
+    isModalVisible: false
+  };
 
     render() {
       return (
@@ -64,6 +74,27 @@ export default class FoundProfileScreen extends Component {
         <Content style={styles.wrapper}>
           <View style={styles.container}>
 
+          <Modal isVisible={this.state.isModalVisible}>
+            <View style={{ flex: 1 , position:'absolute', alignItems:'center', width:screen.width - 40,  height:300, backgroundColor:'rgba(255, 255, 255, 0.9)', }}>
+            <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', top:0, right:10, width:50, height:50, backgroundColor:'rgba(255, 255, 255, 0.0)', alignItems:'center', justifyContent:'center', }}>
+            <IconFeather name='x' size={26} color={'black'} />
+            </TouchableOpacity>
+              <Text style={{fontSize:20, fontWeight:'bold',  top:30,}}>Add Connection</Text>
+              <Text style={{fontSize:20, fontWeight:'normal', margin: 10, top:70,}}>Do You want to Add USERNAME as a CONNECTION?</Text>
+              <View style={{position:'absolute', bottom:0, width:screen.width - 40, height:80, flexDirection:'column'}}>
+
+              <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', width:(screen.width - 40)/2, height:80,  backgroundColor:'green', bottom:0, justifyContent:'center', alignItems:'center', }}>
+                <Text style={{color:'white', fontSize:22, fontWeight:'bold',}}>YES</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', width:(screen.width - 40)/2, height:80, left:(screen.width - 40)/2, backgroundColor:'red', bottom:0, justifyContent:'center', alignItems:'center', }}>
+                <Text style={{color:'white', fontSize:22, fontWeight:'bold',}}>NO</Text>
+              </TouchableOpacity>
+
+              </View>
+
+            </View>
+          </Modal>
+
 
             <View style={styles.bannerImageView}>
               <Image source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-04-04.png')}/>
@@ -83,7 +114,7 @@ export default class FoundProfileScreen extends Component {
             <Text style={styles.titleLabel}>TITLE LABEL</Text>
 
             <View style={{position:'absolute', top:310, width:screen.width, height:80, backgroundColor:'#ffffff', justifyContent:'center', }}>
-              <TouchableOpacity style={styles.addConnectionBtn}>
+              <TouchableOpacity onPress={this._toggleModal} style={styles.addConnectionBtn}>
                 <View style={{position:'absolute', left:10, width:20, height:20, backgroundColor:'white', top:10, }}>
                   <IconFeather name='plus' color={'#5AC6CC'} size={20}/>
                 </View>
@@ -141,7 +172,8 @@ export default class FoundProfileScreen extends Component {
 
             <Text style={styles.recentFeaturesLabel}>RECENT FEATURES</Text>
 
-            <TouchableOpacity style={{position:'absolute', top:730, right:5, height:30, width:80,
+            <TouchableOpacity onPress={this.seeAllPush}
+            style={{position:'absolute', top:770, right:5, height:30, width:80,
              backgroundColor:'white', zIndex:999, alignItems:'center',}}>
               <Text style={styles.seeAllLabel}>See All</Text>
             </TouchableOpacity>
@@ -150,11 +182,14 @@ export default class FoundProfileScreen extends Component {
 
             <ScrollView horizontal={true} style={styles.scrollView}>
 
-              <View>
+              <TouchableOpacity
+              onPress={this.featuresPush}
+              style={{backgroundColor:'white', width:120, height:180, position:'absolute', top:0, left:10, alignItems:'center' }}>
                 <Image style={styles.recentsImage} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-08.png')}/>
-              </View>
+                <Text style={{position:'absolute', bottom:20,}}>Song Name</Text>
+                <Text style={{position:'absolute', bottom:0,}}>Artist</Text>
+              </TouchableOpacity>
             </ScrollView>
-             </View>
 
             <Text style={styles.platformsLabel}>PLATFORMS</Text>
 
@@ -228,7 +263,7 @@ export default class FoundProfileScreen extends Component {
             <Text style={styles.projectsLabel}>PROJECTS</Text>
 
             <View
-            style={{position:'relative', width:screen.width, backgroundColor:'white', top: 70, height:580}}>
+            style={{position:'relative', width:screen.width, backgroundColor:'white', top: 70, height:900}}>
             <Grid
 
                 onPress={this.openProject}
@@ -240,6 +275,7 @@ export default class FoundProfileScreen extends Component {
               />
             </View>
 
+          </View>
           </View>
         </Content>
         </ScrollView>
@@ -259,6 +295,14 @@ export default class FoundProfileScreen extends Component {
     pop =() => {
     this.props.navigation.dispatch(popAction);
     }
+    featuresPush=()=>{
+      this.props.navigation.dispatch(pushAction);
+    }
+    seeAllPush=()=>{
+      this.props.navigation.navigate('SeeAllFeaturesPage');
+    }
+    _toggleModal = () =>
+      this.setState({ isModalVisible: !this.state.isModalVisible });
 
   }
 
@@ -271,7 +315,7 @@ const styles = StyleSheet.create({
     flex:1,
   },
   item: {
-    flex: 1, height:screen.width/3, margin: 1,
+    flex: 1, height:(screen.width/3)+60, margin: 1,
   },
   list: {
     flex: 1,
@@ -327,10 +371,10 @@ const styles = StyleSheet.create({
     position:'absolute', top:600, alignSelf:'center', fontSize: 26, fontWeight:'bold', color:'black', zIndex:1000,
   },
   scrollView:{
-    position:'relative', height:140, paddingLeft:10, top:70, backgroundColor:'white',
+    position:'relative', height:180, paddingLeft:10, top:70, backgroundColor:'white',
   },
   recentsImage:{
-    position:'absolute', top:35, height:100, width:100, borderRadius:50, paddingLeft:5, borderColor:'black', left:10, borderWidth:5,
+    position:'absolute', top:35, height:100, width:100, borderRadius:5, paddingLeft:5, borderColor:'black', left:10, borderWidth:5,
   },
   seeAllLabel:{
     fontSize: 18, fontWeight:'bold', color:'grey',

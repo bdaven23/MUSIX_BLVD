@@ -118,7 +118,7 @@ export default class Login extends Component {
             style={styles.button}
             onPress={this.loginPush}>
 
-            <Text style={styles.btnText}>Login</Text>
+            <Text style={styles.btnText}>LOGIN</Text>
           </TouchableOpacity>
 
             <Text style={{bottom:190, position:'absolute', color:'white', }}>OR CONTINUE WITH</Text>
@@ -175,10 +175,10 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#BCBEC0'
   },
   button:{
-    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#5AC6CC', alignItems: 'center',
+    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#5AC6CC', alignItems: 'center', 
   },
   btnText:{
-    color: 'white',
+    color: 'white', fontWeight:'bold',
   },
   noAcctLabel:{
     color:'white', fontSize:10, position:'absolute', bottom:50,

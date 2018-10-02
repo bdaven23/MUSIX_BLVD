@@ -10,6 +10,7 @@ import DashboardScreen from './DashboardScreen';
 import ProfileScreen from './ProfileScreen';
 import FoundProfileScreen from './FoundProfileScreen';
 import FoundProjectScreen from './FoundProjectScreen';
+import SeeAllFeaturesPage from './SeeAllFeaturesPage';
 import ProjectsScreen from './ProjectsScreen';
 import EditProjectsScreen from'./EditProjectsScreen'
 import FindScreen from './FindScreen';
@@ -18,6 +19,7 @@ import SettingsScreen from './SettingsScreen';
 import EditDashScreen from './EditDashScreen';
 import InteractionModalScreen from './InteractionModalScreen';
 import ProjectScreen from './ProjectScreen';
+import TestScreen from './TestScreen';
 import Login from './Login';
 import SignUp from './SignUp';
 
@@ -33,6 +35,8 @@ const ProfileStackNavigator = StackNavigator({
   ProjectScreen:{ screen: ProjectScreen},
   FoundProfileScreen:{screen: FoundProfileScreen},
   EditProjectsScreen:{screen: EditProjectsScreen},
+  SeeAllFeaturesPage:{screen: SeeAllFeaturesPage},
+  FoundProjectScreen:{screen: FoundProjectScreen},
 },{
   headerMode: 'none',
 
@@ -58,6 +62,7 @@ const FindStackNavigator = StackNavigator({
   Explore:{ screen: FindScreen},
   FoundProfileScreen:{screen: FoundProfileScreen},
   FoundProjectScreen:{screen: FoundProjectScreen},
+  SeeAllFeaturesPage:{screen: SeeAllFeaturesPage},
 
 
 },{
@@ -68,6 +73,7 @@ const ConnectionsStackNavigator = StackNavigator({
   Connections:{ screen: ConnectionsScreen},
   FoundProfileScreen:{screen: FoundProfileScreen},
   FoundProjectScreen:{screen: FoundProjectScreen},
+  SeeAllFeaturesPage:{screen: SeeAllFeaturesPage},
 
 
 },{
@@ -82,6 +88,7 @@ const AppDrawerNavigator = DrawerNavigator ({
     Explore: { screen: FindStackNavigator },
     Connections: { screen: ConnectionsStackNavigator },
     Settings: { screen: SettingsStackNavigator },
+    Test:{screen:TestScreen},
 })
 
 export default AppDrawerNavigator;

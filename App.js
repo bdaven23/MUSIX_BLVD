@@ -4,6 +4,7 @@ import { StackNavigator,} from 'react-navigation';
 import Login from './src/screens/Login';
 import SignUp from './src/screens/SignUp';
 import DrawerNavigator from './src/screens/DrawerNavigator';
+import CompanyQuestionsPage from'./src/screens/CompanyQuestionsPage';
 
 
 const Application = StackNavigator({
@@ -23,6 +24,7 @@ const Application = StackNavigator({
       },
   }),
 },
+
   DrawerNavigator:{
     screen : DrawerNavigator,
     navigationOptions: { header: null }
@@ -49,15 +51,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
   },
 });

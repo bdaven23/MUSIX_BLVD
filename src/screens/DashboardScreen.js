@@ -10,6 +10,8 @@ import {
   Image,
   Dimensions,
   ScrollView,
+  AsyncStorage,
+  Flatlist,
 } from 'react-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title, Content , List, ListItem, Accordion, Form, Item, Input, Label} from 'native-base'
 import { StackNavigator, DrawerNavigator, NavigationActions, StackActions } from 'react-navigation';
@@ -21,6 +23,9 @@ import IconMaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 
+import Modal from "react-native-modal";
+
+
 const screen = Dimensions.get('window');
 
 const MyStatusBar = ({backgroundColor, ...props}) => (
@@ -30,6 +35,9 @@ const MyStatusBar = ({backgroundColor, ...props}) => (
 );
 
 export default class DashboardScreen extends Component {
+  state = {
+    isModalVisible: false
+  };
     render() {
       return (
         <Container>
@@ -47,6 +55,27 @@ export default class DashboardScreen extends Component {
             </Right>
             <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
           </Header>
+
+          <Modal isVisible={this.state.isModalVisible}>
+            <View style={{ flex: 1 , position:'absolute', width:screen.width - 40,  height:200, backgroundColor:'rgba(255, 255, 255, 1)', }}>
+
+            <TouchableOpacity onPress={this._toggleModal}style={{position:'absolute', top:0, right:10, width:50, height:50, backgroundColor:'rgba(255, 255, 255, 0.0)', alignItems:'center', justifyContent:'center', }}>
+            <IconFeather name='x' size={26} color={'black'} />
+            </TouchableOpacity>
+
+              <TouchableOpacity style={{position:'absolute', bottom:0, right:0, width:screen.width - 40, height:50, backgroundColor:'#00A79D', alignItems:'center', justifyContent:'center', }}>
+              <Text style={{color:'white'}}>View Profile</Text>
+              </TouchableOpacity>
+
+              <Text style={{position:'absolute', top:50, left:10, fontSize:20, fontWeight:'bold',  top:20, fontSize:30}}>Activity Modal</Text>
+
+              <Text style={{position:'absolute', top:70, fontSize: 16, fontWeight:'normal', color:'black', margin:10}}>this is where the activity will be displayed and from wordpress buddy press software</Text>
+
+
+            </View>
+          </Modal>
+
+
 
           <ScrollView>
          <Content style={styles.wrapper}>
@@ -116,12 +145,13 @@ export default class DashboardScreen extends Component {
                 <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>PRODUCER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
               </Left>
               <Right>
-                <Button transparent>
+                <Button transparent onPress={this._toggleModal}>
                   <Text>View</Text>
                 </Button>
               </Right>
             </ListItem>
           </List>
+
         </Content>
 
           </ScrollView>
@@ -134,6 +164,8 @@ export default class DashboardScreen extends Component {
     edit =() => {
       this.props.navigation.navigate('EditDashScreen');
     }
+    _toggleModal = () =>
+      this.setState({ isModalVisible: !this.state.isModalVisible });
 
   }
 
