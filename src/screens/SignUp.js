@@ -52,7 +52,6 @@ export default class MyComponent extends Component {
             </TouchableOpacity>
               <Text style={{fontSize:20, fontWeight:'bold',  top:50,}}>Performance Rights Organizations</Text>
               <Text style={{fontSize:16, fontWeight:'normal', top:50, margin: 25,}}>A Performance Rights Organization (PRO) is an agency that ensures songwriters and publishers are paid for the use of their music by collecting royalties on behalf of the right owner.</Text>
-              <Text style={{fontSize:16, fontWeight:'normal', top:50, margin: 25,}}>PROs collect public performance royalties. When a song is played in public, like on any kind of radio (AM/FM, streaming, or satellite), in a venue, or TV show and commercials, it is required that they pay for the use. The PRO collects those payments, and distributes them to the right holders.</Text>
 
               <View
               style={{position:'absolute',  left:30, bottom:0, width:50, height:50, borderRadius:25, }}>
@@ -77,7 +76,7 @@ export default class MyComponent extends Component {
 
 
             <Image onPress={this._toggleModal}
-            style={{position:'absolute', top:0, }} source={require('./images/MUSIX_BLVD_LOGO-07.png')}/>
+            style={{position:'absolute', top:0, }} source={require('/images/MB_LOGO_ICON.jpg')}/>
 
 
           <TextInput

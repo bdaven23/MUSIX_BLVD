@@ -87,7 +87,7 @@ export default class Login extends Component {
           <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
 
           <View style={styles.image}>
-            <Image source={require('./images/MUSIX_BLVD_LOGO-07.png')}/>
+            <Image source={require('/images/MB_LOGO_ICON.jpg')}/>
           </View>
 
 
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#BCBEC0'
   },
   button:{
-    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#5AC6CC', alignItems: 'center', 
+    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#5AC6CC', alignItems: 'center',
   },
   btnText:{
     color: 'white', fontWeight:'bold',
