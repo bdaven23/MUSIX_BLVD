@@ -39,7 +39,7 @@ export default class EditDashScreen extends Component {
     return (
       <Container>
 
-      <Header style={{backgroundColor:'#000000'}}>
+      <Header style={{backgroundColor:'#00A3EE'}}>
         <Left>
         <Button onPress={this.pop} transparent>
           <IconFeather name='chevron-left' size={26} color={'white'} />
@@ -53,7 +53,7 @@ export default class EditDashScreen extends Component {
           <IconFeather name='save' size={26} color={'white'} />
         </Button>
         </Right>
-        <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+        <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
       </Header>
 
           <ScrollView>
@@ -74,9 +74,9 @@ export default class EditDashScreen extends Component {
             <Text style={{color:'red', fontWeight:'bold', }}>Delete Banner Image</Text>
           </TouchableOpacity>
 
-            <View style={{postition:'absolute', left:20, top:-50, width:70, height:70, backgroundColor:'#5AC6CC', borderRadius:35, }}></View>
+            <View style={{postition:'absolute', left:20, top:-50, width:70, height:70, backgroundColor:'#00A3EE', borderRadius:35, }}></View>
 
-            <View style={{postition:'absolute', left:20, bottom:30, width:70, height:70, backgroundColor:'#00A79D', borderRadius:15,}}></View>
+            <View style={{postition:'absolute', left:20, bottom:30, width:70, height:70, backgroundColor:'#00A3EE', borderRadius:15,}}></View>
 
 
           </View>
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems:'center',
     justifyContent:'center',
-    backgroundColor:'green',
+    backgroundColor:'#00A3EE',
   },
   content:{
     color:'white',
@@ -205,28 +205,15 @@ const styles = StyleSheet.create({
     flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'blue',
+    backgroundColor: '#00A3EE',
     paddingLeft: 40,
     paddingRight: 40,
   },
-  header: {
-    fontSize: 24,
-    marginBottom: 20,
-    color: 'white',
-    fontWeight: 'bold',
-  },
+
   list:{
     position:'relative',
     width:screen.width,
     backgroundColor:'white',
   },
-  callingCard:{
-    position:'relative',
-    width:screen.width - 20,
-    height:190,
-    backgroundColor:'white',
-    borderRadius:20,
-    borderColor:'black',
-    borderWidth:2,
-  },
+
 });

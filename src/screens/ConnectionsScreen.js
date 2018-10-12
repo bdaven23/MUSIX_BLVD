@@ -34,7 +34,7 @@ export default class ConnectionsScreen extends Component {
     return (
       <Container>
 
-      <Header style={{backgroundColor:'#000000'}}>
+      <Header style={{backgroundColor:'#00A3EE'}}>
         <Left>
         <Button onPress={this.openDrawer} transparent>
           <IconFeather name='menu' size={26} color={'white'} />
@@ -48,7 +48,7 @@ export default class ConnectionsScreen extends Component {
           <IconFeather name='search' size={26} color={'white'} />
         </Button>
         </Right>
-        <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+        <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
       </Header>
 
           <ScrollView>
@@ -70,7 +70,7 @@ export default class ConnectionsScreen extends Component {
                 <Text style={styles.locationLabel}>City, State</Text>
                 <TouchableOpacity style={styles.connectedBtn}>
                   <View style={styles.connectedIconContainer}>
-                    <IconFeather name='check' color={'#5AC6CC'} size={20}/>
+                    <IconFeather name='check' color={'#00A3EE'} size={20}/>
                   </View>
                   <Text style={styles.connectedLabel}>Connected</Text>
                 </TouchableOpacity>
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     color:'white',
   },
   container: {
-    flex:1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'blue', paddingLeft: 40, paddingRight: 40,
+    flex:1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'transparent', paddingLeft: 40, paddingRight: 40,
   },
   header: {
     fontSize: 24, marginBottom: 20, color: 'white', fontWeight: 'bold',
@@ -115,10 +115,10 @@ const styles = StyleSheet.create({
   },
 
   bannerImageView:{
-    position:'relative', width:screen.width-30, height:120, backgroundColor:'#00A79D', borderTopLeftRadius:0, borderTopRightRadius:0, justifyContent: 'center', alignItems: 'center',
+    position:'relative', width:screen.width-30, height:120, backgroundColor:'#00A3EE', borderTopLeftRadius:0, borderTopRightRadius:0, justifyContent: 'center', alignItems: 'center',
   },
   aviImageView:{
-    position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', borderColor:'white', borderWidth:5, left:10, bottom:10,
+    position:'absolute', width:100, height:100, borderRadius:50, backgroundColor:'#00A3EE', borderColor:'white', borderWidth:5, left:10, bottom:10,
   },
   userNameLabel:{
     position:'absolute', left:120, bottom:40, fontSize: 24, fontWeight:'bold',
@@ -134,7 +134,7 @@ const styles = StyleSheet.create({
     backgroundColor:'white', width:100, height:20,
   },
   connectedLabel:{
-    fontWeight:'normal', color:'#5AC6CC' ,top:10, left:30,
+    fontWeight:'normal', color:'#00A3EE' ,top:10, left:30,
   },
   connectedIconContainer:{
     position:'absolute', left:10, width:20, height:20, top:10, backgroundColor:'white', top:10,

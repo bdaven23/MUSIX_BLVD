@@ -42,7 +42,7 @@ export default class DashboardScreen extends Component {
       return (
         <Container>
 
-      <Header style={{backgroundColor:'#000000'}}>
+      <Header style={{backgroundColor:'#00A3EE'}}>
             <Left>
             <Button onPress={this.openDrawer} transparent>
               <IconFeather name='menu' size={26} color={'white'} />
@@ -53,7 +53,7 @@ export default class DashboardScreen extends Component {
             </Body>
             <Right>
             </Right>
-            <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+            <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
           </Header>
 
           <Modal isVisible={this.state.isModalVisible}>
@@ -63,7 +63,7 @@ export default class DashboardScreen extends Component {
             <IconFeather name='x' size={26} color={'black'} />
             </TouchableOpacity>
 
-              <TouchableOpacity style={{position:'absolute', bottom:0, right:0, width:screen.width - 40, height:50, backgroundColor:'#00A79D', alignItems:'center', justifyContent:'center', }}>
+              <TouchableOpacity style={{position:'absolute', bottom:0, right:0, width:screen.width - 40, height:50, backgroundColor:'#00A3EE', alignItems:'center', justifyContent:'center', }}>
               <Text style={{color:'white'}}>View Profile</Text>
               </TouchableOpacity>
 
@@ -85,18 +85,18 @@ export default class DashboardScreen extends Component {
 
           <View style={styles.callingCard}>
 
-            <View style={{position:'relative', width:screen.width-20, height:120,  backgroundColor:'#00A79D', borderTopLeftRadius:0, top:0, borderTopRightRadius:0, justifyContent: 'center',
+            <View style={{position:'relative', width:screen.width-20, height:120,  backgroundColor:'black', borderTopLeftRadius:0, top:0, borderTopRightRadius:0, justifyContent: 'center',
             alignItems: 'center',}}>
 
               <Image style={{position:'relative', width:screen.width-20, height:120, top:0, justifyContent: 'center',
-              alignItems: 'center',}} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-04-04.png')}
+              alignItems: 'center',}} source={require('./images/MB_LOGO_BARE.png')}
              />
 
             </View>
 
               <View>
 
-              <Image style={{position:'relative', width:100, height:100, borderRadius:50, backgroundColor:'#5AC6CC', left:10, bottom:60, borderColor:'white', borderWidth:5,}} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-08.png')}/>
+              <Image style={{position:'relative', width:100, height:100, borderRadius:50, backgroundColor:'#00A3EE', left:10, bottom:60, borderColor:'white', borderWidth:5,}} source={require('./images/MB_LOGO_BARE_WHITE.png')}/>
 
               </View>
 
@@ -113,7 +113,7 @@ export default class DashboardScreen extends Component {
 
           </View>
 
-            <View style={{position:'relative', width:screen.width, backgroundColor:'#5AC6CC', top:0, height:50, justifyContent: 'center', alignItems: 'center', borderBottomWidth :3, borderBottomColor: '#000'}}>
+            <View style={{position:'relative', width:screen.width, backgroundColor:'#00A3EE', top:0, height:50, justifyContent: 'center', alignItems: 'center', borderBottomWidth :3, borderBottomColor: '#000'}}>
               <Text style={styles.StatisticsLabel}>Statistics</Text>
             </View>
 
@@ -134,7 +134,7 @@ export default class DashboardScreen extends Component {
               </View>
             </View>
 
-            <View style={{position:'relative', width:screen.width, backgroundColor:'#5AC6CC', top:0, height:50, justifyContent: 'center', alignItems: 'center', borderBottomWidth:3, borderBottomColor: '#000'}}>
+            <View style={{position:'relative', width:screen.width, backgroundColor:'#00A3EE', top:0, height:50, justifyContent: 'center', alignItems: 'center', borderBottomWidth:3, borderBottomColor: '#000'}}>
               <Text style={styles.ActivityLabel}>Activity</Text>
             </View>
 
@@ -142,7 +142,7 @@ export default class DashboardScreen extends Component {
           <List style={styles.list}>
             <ListItem>
               <Left>
-                <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A79D',}}>PRODUCER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
+                <Text style={{fontSize: 16, fontWeight:'bold', color:'#00A3EE',}}>ARTIST 1 </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>tagged </Text><Text style={{fontSize: 16, fontWeight:'bold', color:'#00A3EE',}}>PRODUCER </Text><Text style={{fontSize: 16, fontWeight:'normal', color:'black',}}>for Song 1</Text>
               </Left>
               <Right>
                 <Button transparent onPress={this._toggleModal}>

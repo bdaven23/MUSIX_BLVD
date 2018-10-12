@@ -4,7 +4,6 @@ import { StackNavigator,} from 'react-navigation';
 import Login from './src/screens/Login';
 import SignUp from './src/screens/SignUp';
 import DrawerNavigator from './src/screens/DrawerNavigator';
-import CompanyQuestionsPage from'./src/screens/CompanyQuestionsPage';
 
 
 const Application = StackNavigator({
@@ -16,9 +15,9 @@ const Application = StackNavigator({
     screen: SignUp,
     navigationOptions: () => ({
       title: 'Sign Up',
-      headerTintColor: 'white',
+      headerTintColor: '#00A3EE',
       headerStyle:{
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         elevation: 0,
         showdowOpacity: 0
       },

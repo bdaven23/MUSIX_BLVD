@@ -84,11 +84,10 @@ export default class Login extends Component {
 
         <View style={styles.container}>
 
-          <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+          <MyStatusBar backgroundColor="#00A3EE" barStyle="dark-content" />
 
-          <View style={styles.image}>
-            <Image source={require('/images/MB_LOGO_ICON.jpg')}/>
-          </View>
+
+          <Image style={{position:'absolute', top:50, width:150, height:150, alignSelf:'center', }} source={require('./images/MB_LOGO_SPLASH_SCREEN.jpg')}/>
 
 
           <Text style={styles.header}>Welcome</Text>
@@ -121,17 +120,17 @@ export default class Login extends Component {
             <Text style={styles.btnText}>LOGIN</Text>
           </TouchableOpacity>
 
-            <Text style={{bottom:190, position:'absolute', color:'white', }}>OR CONTINUE WITH</Text>
+            <Text style={{bottom:190, position:'absolute', color:'#00A3EE', }}>OR CONTINUE WITH</Text>
 
-            <View style={{position:'absolute', backgroundColor:'black', left:75, bottom:130, width:50, height:50, borderRadius:25, }}>
+            <View style={{position:'absolute', backgroundColor:'transparent', left:75, bottom:130, width:50, height:50, borderRadius:25, }}>
               <Image source={require('./images/Twitter-Logo.png')}/>
             </View>
 
-            <View style={{position:'absolute', backgroundColor:'black', right:75, bottom:130, width:50, height:50, borderRadius:25, }}>
+            <View style={{position:'absolute', backgroundColor:'transparent', right:75, bottom:130, width:50, height:50, borderRadius:25, }}>
               <Image source={require('./images/Google-logo-2015-G-icon.png')}/>
             </View>
 
-            <View style={{position:'absolute', backgroundColor:'purple', bottom:130, width:50, height:50, borderRadius:25,}}>
+            <View style={{position:'absolute', backgroundColor:'transparent', bottom:130, width:50, height:50, borderRadius:25,}}>
               <Image style={{borderRadius:25}}    source={require('./images/facebook_logo.png')}/>
 
             </View>
@@ -166,25 +165,25 @@ const styles = StyleSheet.create({
     flex:1,
   },
   container: {
-    flex:1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'black', paddingLeft: 40, paddingRight: 40,
+    flex:1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'white', paddingLeft: 40, paddingRight: 40,
   },
   header: {
-    fontSize: 24, marginBottom: 20, color: 'white', fontWeight: 'bold',
+    fontSize: 24, marginBottom: 20, color: 'black', fontWeight: 'bold',
   },
   textInput:{
-    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#BCBEC0'
+    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'white', borderRadius:10, borderColor:'#00A3EE', borderWidth:2,
   },
   button:{
-    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#5AC6CC', alignItems: 'center',
+    alignSelf: 'stretch', padding:16, marginBottom:20, backgroundColor:'#00A3EE', alignItems: 'center', borderRadius:10,
   },
   btnText:{
     color: 'white', fontWeight:'bold',
   },
   noAcctLabel:{
-    color:'white', fontSize:10, position:'absolute', bottom:50,
+    color:'black', fontSize:10, position:'absolute', bottom:50,
   },
   SignUp:{
-    color:'white', fontWeight:'bold', fontSize:14, position:'absolute', bottom:30,
+    color:'#00A3EE', fontWeight:'bold', fontSize:14, position:'absolute', bottom:30,
   },
   image:{
     width:150, height:150, position:'absolute', backgroundColor:'black', top:50,

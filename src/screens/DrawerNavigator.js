@@ -17,7 +17,6 @@ import FindScreen from './FindScreen';
 import ConnectionsScreen from './ConnectionsScreen';
 import SettingsScreen from './SettingsScreen';
 import EditDashScreen from './EditDashScreen';
-import InteractionModalScreen from './InteractionModalScreen';
 import ProjectScreen from './ProjectScreen';
 import TestScreen from './TestScreen';
 import Login from './Login';

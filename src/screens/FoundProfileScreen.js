@@ -40,7 +40,9 @@ const pushAction = StackActions.push({
 export default class FoundProfileScreen extends Component {
   _renderItem = (data, i) => (
     <TouchableOpacity  style={styles.item} onPress={this.openProject} >
-    <View style={[{ backgroundColor: data }, styles.item]} key={i} />
+    <View style={[{ backgroundColor: data }, styles.item]} key={i} >
+    <Image style={styles.itemPic} source={require('./images/MB_LOGO_BARE_WHITE.png')}/>
+    </View>
     <Text style={{fontSize:16, fontWeight:'bold', alignSelf:'center',}}>Track Title</Text>
     <Text style={{fontSize:12, fontWeight:'normal', alignSelf:'center',}}>Artist Name</Text>
     <Text style={{fontSize:12, fontWeight:'normal', alignSelf:'center',}}>Job title</Text>
@@ -56,7 +58,7 @@ export default class FoundProfileScreen extends Component {
     render() {
       return (
         <Container>
-          <Header style={{backgroundColor:'#000000'}}>
+          <Header style={{backgroundColor:'#00A3EE'}}>
             <Left>
             <Button onPress={this.pop} transparent>
               <IconFeather name='chevron-left' size={26} color={'white'} />
@@ -67,7 +69,7 @@ export default class FoundProfileScreen extends Component {
             </Body>
             <Right>
             </Right>
-            <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+            <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
           </Header>
 
           <ScrollView>
@@ -75,19 +77,30 @@ export default class FoundProfileScreen extends Component {
           <View style={styles.container}>
 
           <Modal isVisible={this.state.isModalVisible}>
-            <View style={{ flex: 1 , position:'absolute', alignItems:'center', width:screen.width - 40,  height:300, backgroundColor:'rgba(255, 255, 255, 0.9)', }}>
-            <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', top:0, right:10, width:50, height:50, backgroundColor:'rgba(255, 255, 255, 0.0)', alignItems:'center', justifyContent:'center', }}>
-            <IconFeather name='x' size={26} color={'black'} />
+            <View style={{ flex: 1 , position:'absolute', alignItems:'center', width:screen.width - 40,  height:200, backgroundColor:'rgba(255, 255, 255, 0.9)', }}>
+
+            <View style={{position:'absolute', top:0, width:screen.width - 40, height:50, backgroundColor:'#00A3EE', justifyContent:'center', }}>
+
+            <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', top:0, right:0, width:50, height:50, backgroundColor:'rgba(255, 255, 255, 0.0)', alignItems:'center', justifyContent:'center', }}>
+            <IconFeather name='x' size={26} color={'white'} />
             </TouchableOpacity>
-              <Text style={{fontSize:20, fontWeight:'bold',  top:30,}}>Add Connection</Text>
+
+              <Text style={{fontSize:20, fontWeight:'bold', color:'white', alignSelf:'center', }}>Add Connection</Text>
+
+              </View>
+
+
               <Text style={{fontSize:20, fontWeight:'normal', margin: 10, top:70,}}>Do You want to Add USERNAME as a CONNECTION?</Text>
+
+
+
               <View style={{position:'absolute', bottom:0, width:screen.width - 40, height:80, flexDirection:'column'}}>
 
-              <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', width:(screen.width - 40)/2, height:80,  backgroundColor:'green', bottom:0, justifyContent:'center', alignItems:'center', }}>
+              <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', width:(screen.width - 40)/2, height:50,  backgroundColor:'#00A3EE', bottom:0, justifyContent:'center', alignItems:'center', }}>
                 <Text style={{color:'white', fontSize:22, fontWeight:'bold',}}>YES</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', width:(screen.width - 40)/2, height:80, left:(screen.width - 40)/2, backgroundColor:'red', bottom:0, justifyContent:'center', alignItems:'center', }}>
-                <Text style={{color:'white', fontSize:22, fontWeight:'bold',}}>NO</Text>
+              <TouchableOpacity onPress={this._toggleModal} style={{position:'absolute', width:(screen.width - 40)/2, height:50, left:(screen.width - 40)/2, backgroundColor:'white', bottom:0, justifyContent:'center', alignItems:'center', }}>
+                <Text style={{color:'#00A3EE', fontSize:22, fontWeight:'bold',}}>NO</Text>
               </TouchableOpacity>
 
               </View>
@@ -96,14 +109,14 @@ export default class FoundProfileScreen extends Component {
           </Modal>
 
 
-            <View style={styles.bannerImageView}>
-              <Image source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-04-04.png')}/>
-            </View>
+          <View >
+            <Image style={styles.bannerImageView} source={require('./images/MB_LOGO_BARE_WHITE.png')}/>
+          </View>
 
-            <View>
-              <Image style={styles.profileImageView} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-08.png')}
-              />
-            </View>
+          <View>
+            <Image style={styles.profileImageView} source={require('./images/MB_LOGO_BARE_WHITE.png')}
+            />
+          </View>
 
 
             <View style={styles.onlineIcon}></View>
@@ -182,13 +195,13 @@ export default class FoundProfileScreen extends Component {
 
             <ScrollView horizontal={true} style={styles.scrollView}>
 
-              <TouchableOpacity
-              onPress={this.featuresPush}
-              style={{backgroundColor:'white', width:120, height:180, position:'absolute', top:0, left:10, alignItems:'center' }}>
-                <Image style={styles.recentsImage} source={require('./images/TEMPLATE_FOR_MISIX_BLVD-01-08.png')}/>
-                <Text style={{position:'absolute', bottom:20,}}>Song Name</Text>
-                <Text style={{position:'absolute', bottom:0,}}>Artist</Text>
-              </TouchableOpacity>
+            <TouchableOpacity
+            onPress={this.featuresPush}
+            style={{backgroundColor:'white', width:120, height:180, position:'absolute', top:0, left:10, alignItems:'center' }}>
+              <Image style={styles.recentsImage} source={require('./images/MB_LOGO_BARE.png')}/>
+              <Text style={{position:'absolute', bottom:20,}}>Song Name</Text>
+              <Text style={{position:'absolute', bottom:0,}}>Artist</Text>
+            </TouchableOpacity>
             </ScrollView>
 
             <Text style={styles.platformsLabel}>PLATFORMS</Text>
@@ -320,11 +333,14 @@ const styles = StyleSheet.create({
   list: {
     flex: 1,
   },
+  itemPic: {
+    flex: 1, height:(screen.width/3)-2, width:(screen.width/3)-2,
+  },
   bannerImageView:{
-    position:'relative', height:200, width:screen.width, backgroundColor:'#00A79D', top:0, justifyContent: 'center', alignItems: 'center',
+    position:'relative', height:200, width:screen.width, backgroundColor:'#00A3EE', top:0, justifyContent: 'center', alignItems: 'center',
   },
   profileImageView:{
-    position:'relative', height:100, width:100, backgroundColor:'#5AC6CC', top:-50, justifyContent: 'center', alignItems: 'center', borderRadius:50, borderColor:'white', borderWidth:5, left: 10
+    position:'relative', height:100, width:100, backgroundColor:'#00A3EE', top:-50, justifyContent: 'center', alignItems: 'center', borderRadius:50, borderColor:'white', borderWidth:5, left: 10
   },
   onlineIcon:{
     position:'absolute', top:210, left:125, backgroundColor:'green', width:20, height:20, borderRadius:10,
@@ -393,23 +409,23 @@ const styles = StyleSheet.create({
     top:70, alignSelf:'center', fontSize: 26, fontWeight:'bold', color:'black',
   },
   addConnectionBtn:{
-    position:'absolute', top:15, left:15, width:(screen.width /2)-20, height: 45, backgroundColor:'white', borderRadius:30, borderColor:'#5AC6CC', borderWidth:3, justifyContent:'center',
+    position:'absolute', top:15, left:15, width:(screen.width /2)-20, height: 45, backgroundColor:'white', borderRadius:30, borderColor:'#00A3EE', borderWidth:3, justifyContent:'center',
 
   },
   addConnectionLabel:{
-    color:'#5AC6CC', fontWeight:'bold', fontSize:12, left: 32,
+    color:'#00A3EE', fontWeight:'bold', fontSize:12, left: 32,
   },
   directMessageBtn:{
-    position:'absolute', top:15, left:(screen.width /2)+10, width:(screen.width /4)-15, height: 45, backgroundColor:'white', borderRadius:30, borderColor:'#5AC6CC', borderWidth:3, justifyContent:'center', alignItems:'center',
+    position:'absolute', top:15, left:(screen.width /2)+10, width:(screen.width /4)-15, height: 45, backgroundColor:'white', borderRadius:30, borderColor:'#00A3EE', borderWidth:3, justifyContent:'center', alignItems:'center',
   },
   directMessageLabel:{
-    color:'#5AC6CC', fontWeight:'bold', fontSize:14,
+    color:'#00A3EE', fontWeight:'bold', fontSize:14,
  },
   moreActionsBtn:{
-    position:'absolute', top:15, left:(screen.width /2)+ (screen.width /4)+5, width:(screen.width /4)-15, height: 45, backgroundColor:'white', borderRadius:30, borderColor:'#5AC6CC', borderWidth:3,
+    position:'absolute', top:15, left:(screen.width /2)+ (screen.width /4)+5, width:(screen.width /4)-15, height: 45, backgroundColor:'white', borderRadius:30, borderColor:'#00A3EE', borderWidth:3,
     justifyContent:'center', alignItems:'center',
 },
   moreActionsLabel:{
-    color:'#5AC6CC', fontWeight:'bold', fontSize:14,
+    color:'#00A3EE', fontWeight:'bold', fontSize:14,
   }
 })

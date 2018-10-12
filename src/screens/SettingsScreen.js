@@ -33,7 +33,7 @@ export default class SettingsScreen extends Component {
   render() {
     return (
       <Container>
-        <Header style={{backgroundColor:'#000000'}}>
+        <Header style={{backgroundColor:'#00A3EE'}}>
           <Left>
           <Button onPress={this.openDrawer} transparent>
             <IconFeather name='menu' size={26} color={'white'} />
@@ -45,7 +45,7 @@ export default class SettingsScreen extends Component {
           <Right>
           </Right>
         </Header>
-        <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+        <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
         <ScrollView>
 
 

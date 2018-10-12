@@ -48,7 +48,7 @@ export default class FoundProjectScreen extends Component {
       return (
         <Container>
 
-        <Header style={{backgroundColor:'#000000'}}>
+        <Header style={{backgroundColor:'#00A3EE'}}>
           <Left>
           <Button onPress={this.pop} transparent>
             <IconFeather name='chevron-left' size={26} color={'white'} />
@@ -60,7 +60,7 @@ export default class FoundProjectScreen extends Component {
           <Right>
 
           </Right>
-          <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+          <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
         </Header>
 
           <ScrollView>
@@ -68,8 +68,11 @@ export default class FoundProjectScreen extends Component {
           <View style={styles.container}>
 
 
-          <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'#00A79D', justifyContent: 'center',
+          <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'#000000', justifyContent: 'center',
           alignItems: 'center',}}>
+          <Image style={{position:'relative', width:120, height:120,
+          alignItems: 'center',}} source={require('./images/MB_LOGO_BARE_WHITE.png')}
+         />
           <Text style={{ color:'white'}}>Album Art</Text>
         </View>
 

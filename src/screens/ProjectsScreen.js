@@ -34,7 +34,7 @@ export default class ProjectsScreen extends Component {
     return (
       <Container>
 
-      <Header style={{backgroundColor:'#000000'}}>
+      <Header style={{backgroundColor:'#00A3EE'}}>
         <Left>
         <Button onPress={this.openDrawer} transparent>
           <IconFeather name='menu' size={26} color={'white'} />
@@ -48,13 +48,16 @@ export default class ProjectsScreen extends Component {
           <IconFeather name='save' size={26} color={'white'} />
         </Button>
         </Right>
-        <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+        <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
       </Header>
 
         <ScrollView>
 
-        <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'#00A79D', justifyContent: 'center',
+        <View style={{position:'relative', top:0, width:screen.width, height:screen.width, backgroundColor:'#000000', justifyContent: 'center',
         alignItems: 'center',}}>
+        <Image style={{position:'relative', width:120, height:120,
+        alignItems: 'center',}} source={require('./images/MB_LOGO_BARE_WHITE.png')}
+       />
         <Text style={{ color:'white'}}>Album Art</Text>
       </View>
       <View style={{flex: 1, flexDirection: 'row'}}>

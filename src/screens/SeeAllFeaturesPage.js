@@ -39,7 +39,9 @@ const popAction = StackActions.pop({
 export default class SeeAllFeaturesPage extends Component {
   _renderItem = (data, i) => (
     <TouchableOpacity  style={styles.item} onPress={this.openProject} >
-    <View style={[{ backgroundColor: data }, styles.item]} key={i} />
+    <View style={[{ backgroundColor: data }, styles.item]} key={i} >
+    <Image style={styles.itemPic} source={require('./images/MB_LOGO_BARE_WHITE.png')}/>
+    </View>
     <Text style={{fontSize:16, fontWeight:'bold', alignSelf:'center',}}>Track Title</Text>
     <Text style={{fontSize:12, fontWeight:'normal', alignSelf:'center',}}>Artist Name</Text>
     <Text style={{fontSize:12, fontWeight:'normal', alignSelf:'center',}}>Job title</Text>
@@ -51,7 +53,7 @@ export default class SeeAllFeaturesPage extends Component {
     render() {
       return (
         <Container>
-          <Header style={{backgroundColor:'#000000'}}>
+          <Header style={{backgroundColor:'#00A3EE'}}>
             <Left>
             <Button onPress={this.pop} transparent>
               <IconFeather name='chevron-left' size={26} color={'white'} />
@@ -62,7 +64,7 @@ export default class SeeAllFeaturesPage extends Component {
             </Body>
             <Right>
             </Right>
-            <MyStatusBar backgroundColor="#5E8D48" barStyle="light-content" />
+            <MyStatusBar backgroundColor="#00A3EE" barStyle="light-content" />
           </Header>
 
           <ScrollView>
@@ -208,5 +210,9 @@ const styles = StyleSheet.create({
 },
   moreActionsLabel:{
     color:'#5AC6CC', fontWeight:'bold', fontSize:14,
-  }
+  },
+  itemPic: {
+    flex: 1, height:(screen.width/3)-2, width:(screen.width/3)-2,
+  },
+
 })
